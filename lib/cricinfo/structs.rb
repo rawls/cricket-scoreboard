@@ -1,1 +1,7 @@
-Dir[File.join(__dir__, 'structs', '*.rb')].each { |file| require file }
+require_relative 'structs/base'
+require_relative 'structs/ground'
+require_relative 'structs/ball'
+require_relative 'structs/player'
+require_relative 'structs/team'
+require_relative 'structs/innings'
+require_relative 'structs/match'

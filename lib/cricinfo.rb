@@ -1,1 +1,4 @@
-Dir[File.join(__dir__, 'cricinfo', '*.rb')].each { |file| require file }
+require_relative 'cricinfo/logging'
+require_relative 'cricinfo/structs'
+require_relative 'cricinfo/connection'
+require_relative 'cricinfo/adapter'
