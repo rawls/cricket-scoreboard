@@ -1,0 +1,87 @@
+/* Scoreboard layout */
+.scoreboard {
+  width: 100%;
+}
+.scoreboard .row {
+  height: 32vh;
+}
+.scoreboard .label, .scoreboard .dotmatrix {
+  text-align: center;
+  font-size: 4vw;
+}
+.scoreboard .sevensegment {
+  text-align: center;
+  font-size: 8vw;
+}
+.scoreboard .run-total .label {
+  font-size: 5vw;
+  font-weight: bold;
+}
+.scoreboard .run-total .sevensegment {
+  font-size: 9vw;
+}
+.scoreboard .inning .label {
+  font-size: 2.5vw;
+}
+.scoreboard .inning .dotmatrix {
+  font-size: 3vw;
+}
+
+/* Ticker styles */
+.red-text {
+  color: red;
+  font-weight: bold;
+}
+.green-text {
+  color: green;
+  font-weight: bold;
+}
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.ticker-wrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 2.5vw;
+  background-color: rgba(#000, 0.9); 
+  padding-left: 100%;  /* offset items to begin */
+}
+.ticker {
+  display: inline-block;
+  height: 2.5vw;
+  line-height: 2.5vw;  
+  white-space: nowrap; /* display items in a line */
+  padding-right: 100%; /* ensure items go before animations repeat (taken from parent due to inline-block) */
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker;
+  animation-duration: 45s;
+  font-family: dotmatrix;
+  color: orange;
+}
+.ticker-item {
+  display: inline-block;
+  padding: 0 0.5vw;
+  font-size: 2vw;
+  font-family: dotmatrix;
+  color: orange;
+}
+.ticker-item:last-child {
+  padding-right: 100%;
+}

@@ -1,0 +1,21 @@
+require: rubocop-rspec
+
+Metrics/LineLength:
+  Max: 120
+Metrics/ClassLength:
+  Max: 200
+Metrics/MethodLength:
+  Max: 20
+Metrics/AbcSize:
+  Max: 20
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - '**/*' # maybe later, ruby-3 later
+RSpec/MultipleExpectations:
+  Max: 5
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+GlobalVars:
+  AllowedVariables:
+    - $logger

@@ -1,0 +1,18 @@
+<header>
+  <h1 class="dotmatrix"><%= I18n.t(:'index.title') %></h1>
+</header>
+<main>
+  <ul class="match-list">
+    <% matches.each do |id, match| %>
+      <li class="mini-board" id="match-<%= id %>">
+        <a href="/scoreboard/<%= "#{id}-#{match.summary.tr(' ', '-')}" %>">
+          <p class="dotmatrix team-name" id="match-<%= id %>-home-team"><%= match.home_team.name %></p>
+          <p class="dotmatrix"><%= I18n.t(:'index.versus') %></p>
+          <p class="dotmatrix team-name" id="match-<%= id %>-away-team"><%= match.away_team.name %></p>
+          <p class="dotmatrix" id="match-<%= id %>-ground"><%= I18n.t(:'index.at') %> <%= match.ground.short_name %></p>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</main>
+<footer class="dotmatrix"><%= I18n.t(:copyright) %> <%= Date.today.year %></footer>

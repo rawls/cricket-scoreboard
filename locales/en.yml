@@ -1,0 +1,15 @@
+en:
+  title:     "Cricket Scoreboard"
+  copyright: "&copy; Will Brown"
+  index:
+    title:  "Cricket Scoreboards"
+    versus: v
+    at:     "@"
+  scoreboard:
+    total:    TOTAL
+    overs:    OVERS
+    wickets:  WICKETS
+    run_rate: RUN RATE
+    target:   TARGET
+    first:    1ST
+    second:   2ND

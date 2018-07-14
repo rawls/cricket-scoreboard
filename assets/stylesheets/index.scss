@@ -1,0 +1,40 @@
+header h1, footer {
+  text-align: center;
+  width: 100%;
+}
+header h1 {
+  margin-bottom: 3%;
+  padding-bottom: 3%;
+}
+footer {
+  margin-top: 3%;
+  padding-top: 3%;
+}
+.match-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.match-list li {
+  background: #191919;
+  width: 12em;
+  height: 10em;
+  margin-top: 0.4em;
+  line-height: 1.6em;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 1%;
+  box-shadow: 1px 2px 5px #111111;
+}
+.match-list li a {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.match-list li a p.team-name {
+  min-height: 3.2em;
+}

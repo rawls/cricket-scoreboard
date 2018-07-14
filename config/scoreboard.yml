@@ -1,0 +1,8 @@
+:log_level: DEBUG
+:webserver:
+  :port: 4567
+:cricinfo:
+  :match_list_url: 'http://static.cricinfo.com/rss/livescores.xml'
+  :match_data_url: 'http://www.espncricinfo.com/ci/engine/match/'
+  :match_list_cache_expiry: 3600 # 1 hour
+  :match_data_cache_expiry: 120  # 2 mins

@@ -1,0 +1,10 @@
+<main id="scoreboard">
+  <%= erb(:'_scoreboard.html', layout: false, locals: { match: match_data(match_id), match_id: match_id }) %>
+</main>
+
+<script type="text/javascript">
+  // Update the scoreboard every two and a half minutes
+  $(document).ready(function() {
+    setInterval(function(){ refreshScore(<%= match_id.to_json %>); }, <%= (interval * 1000).to_json %>);
+  });
+</script>

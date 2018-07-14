@@ -1,0 +1,64 @@
+@import 'index';
+@import 'scoreboard';
+
+/* Top level */
+body {
+  background-color: black;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Flexible containers */
+.row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.col {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+.one_of_two {
+  width: 50%;
+}
+.one_of_three {
+  width: 33%;
+}
+
+/* Text fields */
+@font-face {
+  font-family: sevensegment;
+  src: asset-url('Digital-7Mono.eot');
+  src: asset-url('Digital-7Mono.eot?#iefix') format('embedded-opentype'),
+       asset-url('Digital-7Mono.woff')       format('woff'),
+       asset-url('Digital-7Mono.ttf')        format('truetype');
+  font-weight: normal;
+  font-style:  normal;
+}
+@font-face {
+  font-family: dotmatrix;
+  src: asset-url('ScoreBoard.eot');
+  src: asset-url('ScoreBoard.eot?#iefix') format('embedded-opentype'),
+       asset-url('ScoreBoard.woff')       format('woff'),
+       asset-url('ScoreBoard.ttf')        format('truetype');
+  font-weight: normal;
+  font-style:  normal;
+}
+.dotmatrix {
+  font-family: dotmatrix;
+  color: orange;
+}
+.sevensegment {
+  font-family: sevensegment;
+  color: orange;
+}
+.label {
+  font-family: Helvetica, Arial, Sans-Serif;
+  color: white;
+  font-weight: 550;
+}

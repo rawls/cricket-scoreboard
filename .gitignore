@@ -1,0 +1,6 @@
+coverage
+.DS_Store
+vendor
+**/.*.sw?
+.byebug_history
+TODO

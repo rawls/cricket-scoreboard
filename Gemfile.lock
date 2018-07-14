@@ -1,0 +1,173 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    actionview (5.2.0)
+      activesupport (= 5.2.0)
+      builder (~> 3.1)
+      erubi (~> 1.4)
+      rails-dom-testing (~> 2.0)
+      rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    activesupport (5.2.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    ast (2.4.0)
+    better_html (1.0.11)
+      actionview (>= 4.0)
+      activesupport (>= 4.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      html_tokenizer (~> 0.0.6)
+      parser (>= 2.4)
+      smart_properties
+    builder (3.2.3)
+    byebug (10.0.2)
+    colorize (0.8.1)
+    concurrent-ruby (1.0.5)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    crass (1.0.4)
+    daemons (1.2.6)
+    diff-lcs (1.3)
+    docile (1.3.1)
+    erb_lint (0.0.26)
+      activesupport
+      better_html (~> 1.0.7)
+      colorize
+      html_tokenizer
+      rubocop (~> 0.51)
+      smart_properties
+    erubi (1.7.1)
+    eventmachine (1.2.7)
+    execjs (2.7.0)
+    factory_bot (4.10.0)
+      activesupport (>= 3.0.0)
+    ffi (1.9.25)
+    hashdiff (0.3.7)
+    html_tokenizer (0.0.7)
+    i18n (1.0.1)
+      concurrent-ruby (~> 1.0)
+    jaro_winkler (1.5.1)
+    json (2.1.0)
+    loofah (2.2.2)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.5.9)
+    mini_portile2 (2.3.0)
+    minitest (5.11.3)
+    mustermann (1.0.2)
+    nokogiri (1.8.3)
+      mini_portile2 (~> 2.3.0)
+    parallel (1.12.1)
+    parser (2.5.1.0)
+      ast (~> 2.4.0)
+    powerpack (0.1.2)
+    public_suffix (3.0.2)
+    rack (2.0.5)
+    rack-protection (2.0.3)
+      rack
+    rack-test (1.0.0)
+      rack (>= 1.0, < 3)
+    rails-dom-testing (2.0.3)
+      activesupport (>= 4.2.0)
+      nokogiri (>= 1.6)
+    rails-html-sanitizer (1.0.4)
+      loofah (~> 2.2, >= 2.2.2)
+    rainbow (3.0.0)
+    rb-fsevent (0.10.3)
+    rb-inotify (0.9.10)
+      ffi (>= 0.5.0, < 2)
+    rspec (3.7.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+    rspec-core (3.7.1)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-html-matchers (0.9.1)
+      nokogiri (~> 1)
+      rspec (>= 3.0.0.a, < 4)
+    rspec-mocks (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.1)
+    rubocop (0.57.2)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.5)
+      powerpack (~> 0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    rubocop-rspec (1.27.0)
+      rubocop (>= 0.56.0)
+    ruby-progressbar (1.9.0)
+    safe_yaml (1.0.4)
+    sass (3.5.6)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+    simplecov (0.16.1)
+      docile (~> 1.1)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
+    sinatra (2.0.3)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.3)
+      tilt (~> 2.0)
+    smart_properties (1.13.1)
+    sprockets (3.7.2)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
+    sprockets-helpers (1.2.1)
+      sprockets (>= 2.2)
+    thin (1.7.2)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (>= 1, < 3)
+    thread_safe (0.3.6)
+    tilt (2.0.8)
+    timecop (0.9.1)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
+    uglifier (4.1.14)
+      execjs (>= 0.3.0, < 3)
+    unicode-display_width (1.4.0)
+    webmock (3.4.2)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  byebug
+  erb_lint
+  factory_bot
+  i18n
+  nokogiri
+  rack-test
+  rspec
+  rspec-html-matchers
+  rubocop
+  rubocop-rspec
+  sass
+  simplecov
+  sinatra
+  sprockets
+  sprockets-helpers
+  thin
+  timecop
+  uglifier
+  webmock
+
+BUNDLED WITH
+   1.16.2

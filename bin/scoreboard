@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+require 'yaml'
+require 'optparse'
+require 'pathname'
+$LOAD_PATH << Pathname.new(__FILE__).realpath.parent.parent + 'lib'
+require 'configuration'
+require 'cricinfo'
+require 'scoreboard'
+
+if ENV['RACK_ENV'].nil? || ENV['RACK_ENV'].empty?
+  env_file = Pathname.new(__FILE__).realpath.parent.parent + 'RACK_ENV'
+  ENV['RACK_ENV'] = env_file.exist? ? File.read(env_file) : 'development'
+end
+
+# Get configuration
+yaml  = Pathname.new(__FILE__).realpath.parent.parent + 'config' + 'scoreboard.yml'
+quiet = false
+OptionParser.new do |opts|
+  opts.on('-c', '--config YAML', 'Config file path') { |c| yaml = c }
+  opts.on('-q', '--quiet', 'Silence logging')        { quiet = true }
+  opts.on('-h', '--help', 'This message')            { abort opts.to_s }
+end.parse!
+config = Configuration.parse(yaml)
+
+# Setup logging
+logger       = Logger.new(quiet ? nil : STDOUT)
+logger.level = config[:log_level]
+config[:cricinfo][:logger]  = logger
+config[:webserver][:logger] = logger
+
+# Start the application
+cricinfo = Cricinfo::Adapter.new(config[:cricinfo])
+Scoreboard::Server.new(cricinfo, config[:webserver]).start

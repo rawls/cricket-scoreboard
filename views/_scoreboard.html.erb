@@ -1,0 +1,70 @@
+<div class="scoreboard col">
+  <div class="row">
+    <div class="col one_of_three batsman">
+      <div class="dotmatrix" id="first-batsman-name"><%= match.batsmen[0].surname rescue '-' %></div>
+      <div class="sevensegment" id="first-batsman-runs"><%= match.batsmen[0].runs rescue '-' %></div>
+    </div>
+    <div class="col one_of_three run-total">
+      <div class="label"><%= I18n.t('scoreboard.total') %></div>
+      <div class="sevensegment" id="total-runs"><%= match&.runs || '-' %></div>
+    </div>
+    <div class="col one_of_three batsman">
+      <div class="dotmatrix" id="second-batsman-name"><%= match.batsmen[1].surname rescue '-' %></div>
+      <div class="sevensegment" id="second-batsman-runs"><%= match.batsmen[1].runs rescue '-' %></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col one_of_three">
+      <div class="label"><%= I18n.t('scoreboard.overs') %></div>
+      <div class="sevensegment" id="overs"><%= match&.overs || '-' %></div>
+    </div>
+    <div class="col one_of_three">
+      <div class="label"><%= I18n.t('scoreboard.wickets') %></div>
+      <div class="sevensegment" id="wickets"><%= match&.wickets || '-' %></div>
+    </div>
+    <div class="col one_of_three">
+      <div class="label"><%= I18n.t('scoreboard.run_rate') %></div>
+      <div class="sevensegment" id="run-rate"><%= match&.run_rate || '-' %></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col one_of_two">
+      <div class="dotmatrix" id="home-team-name"><%= match&.home_team&.name %></div>
+      <% 2.times do |i| %>
+        <div class="inning row">
+          <div class="label one_of_two"><%= I18n.t("scoreboard.#{i.odd? ? 'second' : 'first'}") %>:</div>
+          <div class="dotmatrix one_of_two" id="home-innings-<%= i + 1 %>">
+            <%= match.home_innings[i].summary rescue '-' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col one_of_two">
+      <div class="dotmatrix" id="away-team-name"><%= match&.away_team&.name %></div>
+      <% 2.times do |i| %>
+        <div class="inning row">
+          <div class="label one_of_two"><%= I18n.t("scoreboard.#{i.odd? ? 'second' : 'first'}") %>:</div>
+          <div class="dotmatrix one_of_two" id="away-innings-<%= i + 1 %>">
+            <%= match.away_innings[i].summary rescue '-' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% if match.balls %>
+  <div class="ticker-wrapper">
+      <div class="ticker">
+        <% match.balls.each_with_index do |ball, i| %>
+          <div class="ticker-item" id="ball-<%= i %>">
+            <%= "#{ball.over}: #{ball.players}, " %>
+            <% if ball.wicket? || ball.boundary? %>
+              <span class="blink <%= ball.wicket? ? 'red' : 'green' %>-text"><%= ball.event %>!</span>
+            <% else %>
+              <span><%= ball.event %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+<% end %>

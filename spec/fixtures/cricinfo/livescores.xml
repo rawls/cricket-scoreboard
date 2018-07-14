@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+	<channel>
+		<title>Cricinfo Live Scores</title>
+		<ttl>2</ttl>
+		<link>http://www.cricinfo.com</link>
+		<description>Latest scores from Cricinfo</description>
+		<copyright>(c)Cricinfo</copyright>
+		<language>en-gb</language>
+		<pubDate>Mon, 12 Jun 2017 15:37:03 +0000</pubDate>
+		<item>
+			<title>Gloucestershire 219/5 &amp;  303/10 * v Nottinghamshire 535/8 </title>
+			<link>http://www.cricinfo.com/ci/engine/match/1.html?CMP=OTC-RSS </link>
+			<description>Gloucestershire 219/5 &amp;  303/10 * v Nottinghamshire 535/8 </description>
+			<guid>http://www.cricinfo.com/ci/engine/match/1.html</guid>
+		</item>
+		<item>
+			<title>Lancashire 309/10 &amp;  111/2 * v Middlesex 236/10 &amp;  180/10 </title>
+			<link>http://www.cricinfo.com/ci/engine/match/2.html?CMP=OTC-RSS </link>
+			<description>Lancashire 309/10 &amp;  111/2 * v Middlesex 236/10 &amp;  180/10 </description>
+			<guid>http://www.cricinfo.com/ci/engine/match/2.html</guid>
+		</item>
+		<item>
+			<title>Leicestershire 175/10 &amp;  340/10  v Sussex 284/10 &amp;  234/5 *</title>
+			<link>http://www.cricinfo.com/ci/engine/match/3.html?CMP=OTC-RSS </link>
+			<description>Leicestershire 175/10 &amp;  340/10  v Sussex 284/10 &amp;  234/5 *</description>
+			<guid>http://www.cricinfo.com/ci/engine/match/3.html</guid>
+		</item>
+		<item>
+			<title>Somerset 224/10 &amp;  258/10 * v Yorkshire 202/10 &amp;  283/10 </title>
+			<link>http://www.cricinfo.com/ci/engine/match/4.html?CMP=OTC-RSS </link>
+			<description>Somerset 224/10 &amp;  258/10 * v Yorkshire 202/10 &amp;  283/10 </description>
+			<guid>http://www.cricinfo.com/ci/engine/match/4.html</guid>
+		</item>
+		<item>
+			<title>Surrey 399/10 &amp;  288/10  v Essex 435/10 &amp;  244/2 *</title>
+			<link>http://www.cricinfo.com/ci/engine/match/5.html?CMP=OTC-RSS </link>
+			<description>Surrey 399/10 &amp;  288/10  v Essex 435/10 &amp;  244/2 *</description>
+			<guid>http://www.cricinfo.com/ci/engine/match/5.html</guid>
+		</item>
+	</channel>
+</rss>
