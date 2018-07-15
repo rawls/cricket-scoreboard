@@ -4,6 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Installing gems...
+      - sudo apt-get update -y && sudo apt-get install -y nodejs
       - gem install bundler
       - bundle install
       - echo Running tests...
