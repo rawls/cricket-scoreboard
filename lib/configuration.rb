@@ -16,13 +16,13 @@ class Configuration
       cricinfo: {
         list_url:           ENV['LIST_URL'],
         match_url:          ENV['MATCH_URL'],
-        list_cache_expiry:  ENV['LIST_CACHE_EXPIRY'],
-        match_cache_expiry: ENV['MATCH_CACHE_EXPIRY']
+        list_cache_expiry:  ENV['LIST_CACHE_EXPIRY'].to_i,
+        match_cache_expiry: ENV['MATCH_CACHE_EXPIRY'].to_i
       }
     }
   end
 
-  def self.apply_defaults(config)
+  def self.apply_defaults(config) # rubocop:disable Metrics/AbcSize
     config[:log_level]                     ||= 'INFO'
     config[:webserver]                     ||= {}
     config[:webserver][:server]            ||= 'thin'
@@ -31,8 +31,8 @@ class Configuration
     config[:cricinfo]                      ||= {}
     config[:cricinfo][:list_url]           ||= 'http://static.cricinfo.com/rss/livescores.xml'
     config[:cricinfo][:match_url]          ||= 'http://www.espncricinfo.com/ci/engine/match/'
-    config[:cricinfo][:list_cache_expiry]  ||= 3600
-    config[:cricinfo][:match_cache_expiry] ||= 120
+    config[:cricinfo][:list_cache_expiry]    = 3600 if config[:cricinfo][:list_cache_expiry].to_i.zero?
+    config[:cricinfo][:match_cache_expiry]   = 120  if config[:cricinfo][:list_cache_expiry].to_i.zero?
     config
   end
 end
