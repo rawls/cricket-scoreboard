@@ -35,7 +35,7 @@ module Scoreboard
         config.prefix      = assets_prefix
         config.digest      = digest_assets
         config.public_path = public_folder
-        config.debug       = true if environment == 'development'
+        config.debug       = environment == 'development'
       end
     end
 
