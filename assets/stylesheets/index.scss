@@ -10,6 +10,10 @@ footer {
   margin-top: 3%;
   padding-top: 3%;
 }
+footer a {
+  text-decoration: none;
+  color: orange;
+}
 .match-list {
   list-style: none;
   display: flex;
