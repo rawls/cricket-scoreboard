@@ -13,6 +13,10 @@ describe Scoreboard::App do
   context 'when GET /' do
     let(:response) { get '/' }
 
+    it 'returns a successful response' do
+      expect(response).to be_ok
+    end
+
     it 'contains a mini-scoreboard for the 1st match' do
       expect(response.body).to have_tag("a[href='/scoreboard/1-Hampshire-v-Warwickshire']") do
         with_tag('#match-1-home-team', text: 'Hampshire')
@@ -57,6 +61,10 @@ describe Scoreboard::App do
   context 'when GET /scoreboard/5-foo-bar' do
     let(:response) { get '/scoreboard/5-foo-bar' }
     let(:match)    { adapter.match('5') }
+
+    it 'returns a successful response' do
+      expect(response).to be_ok
+    end
 
     it 'contains the run total' do
       expect(response.body).to have_tag('#total-runs', text: match.runs)
