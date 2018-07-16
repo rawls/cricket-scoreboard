@@ -4,6 +4,8 @@ require 'thin'
 module Scoreboard
   # Scoreboard rack webserver
   class Server
+    attr_reader :dispatch, :server, :host, :port, :logger
+
     def initialize(cricinfo, opts = {})
       @cricinfo = cricinfo
       @server   = opts[:server]   || 'thin'

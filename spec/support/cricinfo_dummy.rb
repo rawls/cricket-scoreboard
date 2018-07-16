@@ -19,5 +19,8 @@ class CricinfoDummy < Sinatra::Base
     content_type :json
     status response_code
     File.open(FIXTURE_FOLDER + 'matches/' + file_name, 'rb').read
+  rescue StandardError
+    status 404
+    'Not found'
   end
 end

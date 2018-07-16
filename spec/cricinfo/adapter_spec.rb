@@ -43,6 +43,10 @@ describe Cricinfo::Adapter do
         expect(adapter.match(sussex_v_durham).home_team.name).to eq('Sussex')
         expect(adapter.match(sussex_v_durham).away_team.name).to eq('Durham')
       end
+
+      it 'returns nil if an invalid match id is provided' do
+        expect(adapter.match('foo')).to be_nil
+      end
     end
   end
 end
