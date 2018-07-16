@@ -43,19 +43,16 @@ module Scoreboard
     helpers Sprockets::Helpers
     helpers Scoreboard::Helpers
 
-    before do
-      # TODO: Default cache lifetimes based on cricinfo cache times per request and looong cache times for assets
-      cache_control :public, :must_revalidate, max_age: 60
-    end
-
     # Display a list of available matches
     get '/' do
+      cache_control :public, :must_revalidate, max_age: 120
       last_modified(cached_at)
       erb(:'index.html', locals: { matches: list })
     end
 
     # Render a scoreboard for a single match
     get '/scoreboard/:match_id' do
+      cache_control :public, :must_revalidate, max_age: 45
       match_id = params[:match_id].split('-').first # SEO-friendly paths
       last_modified(cached_at(match_id))
       erb(:'match.html', locals: {
@@ -67,6 +64,7 @@ module Scoreboard
 
     # Render the scoreboard partial on its own
     post '/scoreboard' do
+      cache_control :public, :must_revalidate, max_age: 45
       match_id = params[:match_id]
       last_modified(cached_at(match_id))
       erb(:'_scoreboard.html', layout: false, locals: {
@@ -77,6 +75,7 @@ module Scoreboard
 
     # Serve assets using sprockets
     get '/assets/*' do
+      cache_control :public, :must_revalidate, max_age: 1_440
       env['PATH_INFO'].sub!('/assets', '')
       settings.sprockets.call(env)
     end
