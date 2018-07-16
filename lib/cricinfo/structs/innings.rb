@@ -20,6 +20,10 @@ module Cricinfo
       def self.parse(teams, inningsj)
         batting_team_id  = string(inningsj, 'batting_team_id')
         fielding_team_id = string(inningsj, 'bowling_team_id')
+        unless batting_team_id && fielding_team_id
+          Cricinfo.logger.warn('Innings: missing team id')
+          return nil
+        end
         new(
           batting_team:  teams[batting_team_id],
           fielding_team: teams[fielding_team_id],
@@ -27,6 +31,9 @@ module Cricinfo
           runs:          int(inningsj, 'runs'),
           wickets:       int(inningsj, 'wickets')
         )
+      rescue StandardError => e
+        Cricinfo.logger.warn("Innings: #{e.message}")
+        nil
       end
     end
   end

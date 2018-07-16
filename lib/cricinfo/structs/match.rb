@@ -65,7 +65,7 @@ module Cricinfo
         @away_team = @teams[matchj['away_team_id'].to_s] || @teams.values.last
         @teams
       rescue StandardError => e
-        Cricinfo.logger.error(e)
+        Cricinfo.logger.warn(e)
         raise UnparseableMatch, 'Couldn\'t parse teams'
       end
 
@@ -76,7 +76,7 @@ module Cricinfo
           Innings.parse(@teams, inningj)
         end
       rescue StandardError => e
-        Cricinfo.logger.error(e)
+        Cricinfo.logger.warn(e)
         nil
       end
 
@@ -104,7 +104,7 @@ module Cricinfo
           break if @balls.size >= NUM_PREVIOUS_BALLS
         end
       rescue StandardError => e
-        Cricinfo.logger.error(e)
+        Cricinfo.logger.warn(e)
         nil
       end
 

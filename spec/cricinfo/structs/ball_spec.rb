@@ -21,5 +21,13 @@ describe Cricinfo::Structs::Ball do
         expect(ball.summary).to eq('17.5: Rankin to Adams, no run')
       end
     end
+
+    context 'when attempting to parse invalid incomplete JSON' do
+      let(:ballj) { {} }
+
+      it 'returns nil' do
+        expect(ball).to be_nil
+      end
+    end
   end
 end

@@ -2,11 +2,12 @@ describe Cricinfo::Structs::Innings do
   describe '#parse' do
     subject(:innings) { described_class.parse(teams, inningsj) }
 
+    let(:batting_team)  { Cricinfo::Structs::Team.new(id: '1102', name: 'Hampshire') }
+    let(:fielding_team) { Cricinfo::Structs::Team.new(id: '1479', name: 'Warwickshire') }
+    let(:teams)         { { batting_team.id => batting_team, fielding_team.id => fielding_team } }
+
     context 'when building the Rose Bowl' do
-      let(:inningsj)      { match_json('1')['innings'].detect { |innings| innings['innings_number'] == '1' } }
-      let(:batting_team)  { Cricinfo::Structs::Team.new(id: '1102', name: 'Hampshire') }
-      let(:fielding_team) { Cricinfo::Structs::Team.new(id: '1479', name: 'Warwickshire') }
-      let(:teams)         { { batting_team.id => batting_team, fielding_team.id => fielding_team } }
+      let(:inningsj) { match_json('1')['innings'].detect { |innings| innings['innings_number'] == '1' } }
 
       it 'sets the batting_team' do
         expect(innings.batting_team).to eq(batting_team)
@@ -26,6 +27,14 @@ describe Cricinfo::Structs::Innings do
 
       it 'sets the wicket count' do
         expect(innings.wickets).to eq(3)
+      end
+    end
+
+    context 'when attempting to parse invalid incomplete JSON' do
+      let(:inningsj) { {} }
+
+      it 'returns nil' do
+        expect(innings).to be_nil
       end
     end
   end

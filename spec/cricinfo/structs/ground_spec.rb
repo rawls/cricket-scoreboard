@@ -52,5 +52,13 @@ describe Cricinfo::Structs::Ground do
         expect(ground.longitude).to eq(-1.3)
       end
     end
+
+    context 'when attempting to parse invalid incomplete JSON' do
+      let(:matchj) { {} }
+
+      it 'returns nil' do
+        expect(ground).to be_nil
+      end
+    end
   end
 end
