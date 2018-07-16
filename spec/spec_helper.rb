@@ -17,6 +17,7 @@ require_relative 'support/cricinfo_dummy'
 require_relative 'support/helpers'
 
 # The code
+require_relative '../lib/configuration'
 require_relative '../lib/cricinfo'
 require_relative '../lib/scoreboard'
 
