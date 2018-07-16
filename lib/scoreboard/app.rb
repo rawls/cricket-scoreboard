@@ -12,11 +12,12 @@ module Scoreboard
   # Scoreboard sinatra web application
   class App < Sinatra::Base
     configure do
-      set :root,          Pathname.new(File.dirname(__FILE__)).parent.parent
-      set :public_folder, (proc { File.join(root, 'public') })
-      set :views,         (proc { File.join(root, 'views') })
-      set :logger,        Logger.new(STDOUT)
-      set :environment,   ENV['RACK_ENV'] || 'development'
+      set :root,              Pathname.new(File.dirname(__FILE__)).parent.parent
+      set :public_folder,     (proc { File.join(root, 'public') })
+      set :views,             (proc { File.join(root, 'views') })
+      set :logger,            Logger.new(STDOUT)
+      set :environment,       ENV['RACK_ENV'] || 'development'
+      set :refresh_interval,  150
       # Translations
       I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
       I18n.load_path = Dir[File.join(root, 'locales', '*.yml')]
@@ -60,7 +61,7 @@ module Scoreboard
       erb(:'match.html', locals: {
             match_id: match_id,
             match:    match_data(match_id),
-            interval: 150
+            interval: settings.refresh_interval
           })
     end
 
