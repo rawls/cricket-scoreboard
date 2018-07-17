@@ -8,8 +8,15 @@ require 'rspec-html-matchers'
 
 # Must be required before the code
 require 'simplecov'
+require_relative 'support/svg_badge_formatter'
+formatters = [SimpleCov::Formatter::HTMLFormatter, SvgBadgeFormatter]
+SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new(formatters)
 SimpleCov.start do
+  minimum_coverage 90
+  minimum_coverage_by_file 80
   add_filter '/spec/'
+  add_group 'Scoreboard', 'lib/scoreboard'
+  add_group 'Cricinfo',   'lib/cricinfo'
 end
 
 # Test helpers
