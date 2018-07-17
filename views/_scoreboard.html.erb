@@ -23,8 +23,13 @@
       <div class="sevensegment" id="wickets"><%= match&.wickets || '-' %></div>
     </div>
     <div class="col one_of_three">
-      <div class="label"><%= I18n.t('scoreboard.run_rate') %></div>
-      <div class="sevensegment" id="run-rate"><%= match&.run_rate || '-' %></div>
+      <% if match&.runs_needed %>
+        <div class="label"><%= I18n.t('scoreboard.runs_needed') %></div>
+        <div class="sevensegment" id="runs-needed"><%= match&.runs_needed || '-' %></div>
+      <% else %>
+        <div class="label"><%= I18n.t('scoreboard.run_rate') %></div>
+        <div class="sevensegment" id="run-rate"><%= match&.run_rate || '-' %></div>
+      <% end %>
     </div>
   </div>
   <div class="row">

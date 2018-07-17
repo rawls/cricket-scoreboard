@@ -128,6 +128,11 @@ module Cricinfo
         end
       end
 
+      def runs_needed
+        return nil unless @target
+        @target - @runs
+      end
+
       # Pretty summary of the match
       def summary
         "#{@home_team.name} v #{@away_team.name}"

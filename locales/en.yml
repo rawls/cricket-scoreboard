@@ -6,10 +6,11 @@ en:
     versus: v
     at:     "@"
   scoreboard:
-    total:    TOTAL
-    overs:    OVERS
-    wickets:  WICKETS
-    run_rate: RUN RATE
-    target:   TARGET
-    first:    1ST
-    second:   2ND
+    total:       TOTAL
+    overs:       OVERS
+    wickets:     WICKETS
+    run_rate:    RUN RATE
+    runs_needed: RUNS NEEDED
+    target:      TARGET
+    first:       1ST
+    second:      2ND
