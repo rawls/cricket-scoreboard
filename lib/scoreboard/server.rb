@@ -18,6 +18,8 @@ module Scoreboard
     end
 
     def setup_rack
+      @logger.singleton_class.alias_method :write, :info
+      App.use Rack::CommonLogger, @logger
       App.set :logger, @logger
       App.set :cricinfo, @cricinfo
       App.set :refresh_interval, @interval
