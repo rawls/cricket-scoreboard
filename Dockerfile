@@ -27,4 +27,4 @@ COPY . $APP_HOME/
 # Start the app
 EXPOSE 4567
 ENV CONTAINER true
-CMD ["/app/bin/scoreboard"]
+CMD ["ruby", "/app/bin/scoreboard"]
