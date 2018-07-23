@@ -20,11 +20,27 @@
 .scoreboard .run-total .sevensegment {
   font-size: 9vw;
 }
-.scoreboard .inning .label {
+.scoreboard .details * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scoreboard .details.row {
+  height: 3.5vw;
+}
+.scoreboard .details .label {
   font-size: 2.5vw;
 }
-.scoreboard .inning .dotmatrix {
+.scoreboard .details .dotmatrix {
   font-size: 3vw;
+}
+
+/* Portrait specific elements */
+@media all and (orientation:portrait) {
+  .scoreboard .row { height: 24vh; }
+}
+@media all and (orientation:landscape) {
+  .player-stats { display: none !important; }
 }
 
 /* Ticker styles */

@@ -10,7 +10,9 @@ en:
     overs:       OVERS
     wickets:     WICKETS
     run_rate:    RUN RATE
-    runs_needed: RUNS NEEDED
+    runs_needed: NEEDED
     target:      TARGET
+    batsmen:     BATTING
+    bowlers:     BOWLING
     first:       1ST
     second:      2ND

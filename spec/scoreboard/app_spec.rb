@@ -98,6 +98,21 @@ describe Scoreboard::App do
       expect(response.body).to have_tag('#run-rate', text: match.run_rate)
     end
 
+    it 'contains the first batsman\'s strike rate' do
+      expect(response.body).to have_tag('#batsman-1-sr', text: /#{match.batsmen[0].strike_rate}/)
+    end
+
+    it 'contains the batsmen\'s strike rates' do
+      2.times { |i| expect(response.body).to have_tag("#batsman-#{i + 1}-sr", text: /#{match.batsmen[i].strike_rate}/) }
+    end
+
+    it 'contains the bowlers\' stats' do
+      2.times do |i|
+        bowler_stats = "#{match.bowlers[i].conceded}-#{match.bowlers[i].wickets} (#{match.bowlers[i].economy})"
+        expect(response.body).to have_tag("#bowler-#{i + 1}-stats", text: /#{Regexp.escape(bowler_stats)}/)
+      end
+    end
+
     it 'contains the home team\'s 1st innings score' do
       expect(response.body).to have_tag('#home-innings-1', text: /#{match.home_innings.first.summary}/)
     end

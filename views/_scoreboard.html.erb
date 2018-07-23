@@ -32,11 +32,37 @@
       <% end %>
     </div>
   </div>
+  <div class="row player-stats">
+    <div class="col one_of_two">
+      <div class="label"><%= I18n.t('scoreboard.batsmen') %></div>
+      <% 2.times do |i| %>
+        <% batsman = match.batsmen[i] rescue nil %>
+        <div class="details row">
+          <div class="dotmatrix one_of_two"><%= "#{batsman.surname}:" rescue '-' %></div>
+          <div class="dotmatrix one_of_two" id="batsman-<%= i+1 %>-sr">
+            <%= "#{batsman.strike_rate} S/R" rescue '-' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col one_of_two">
+      <div class="label"><%= I18n.t('scoreboard.bowlers') %></div>
+      <% 2.times do |i| %>
+        <% bowler = match.bowlers[i] rescue nil %>
+        <div class="details row">
+          <div class="dotmatrix one_of_two"><%= "#{bowler.surname}:" rescue '-' %></div>
+          <div class="dotmatrix one_of_two" id="bowler-<%= i+1 %>-stats">
+            <%= "#{bowler.conceded}-#{bowler.wickets} (#{bowler.economy})" rescue '-' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
   <div class="row">
     <div class="col one_of_two">
       <div class="dotmatrix" id="home-team-name"><%= match&.home_team&.name %></div>
       <% 2.times do |i| %>
-        <div class="inning row">
+        <div class="details row">
           <div class="label one_of_two"><%= I18n.t("scoreboard.#{i.odd? ? 'second' : 'first'}") %>:</div>
           <div class="dotmatrix one_of_two" id="home-innings-<%= i + 1 %>">
             <%= match.home_innings[i].summary rescue '-' %>
@@ -47,7 +73,7 @@
     <div class="col one_of_two">
       <div class="dotmatrix" id="away-team-name"><%= match&.away_team&.name %></div>
       <% 2.times do |i| %>
-        <div class="inning row">
+        <div class="details row">
           <div class="label one_of_two"><%= I18n.t("scoreboard.#{i.odd? ? 'second' : 'first'}") %>:</div>
           <div class="dotmatrix one_of_two" id="away-innings-<%= i + 1 %>">
             <%= match.away_innings[i].summary rescue '-' %>
