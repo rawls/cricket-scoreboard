@@ -9,6 +9,12 @@ module Scoreboard
       settings.cricinfo.match(match_id)
     end
 
+    def tracking_id
+      settings.tracking_id
+    rescue StandardError
+      nil
+    end
+
     def cached_at(match_id = nil)
       return settings.cricinfo.list_cached_at unless match_id
       settings.cricinfo.match_cached_at(match_id)

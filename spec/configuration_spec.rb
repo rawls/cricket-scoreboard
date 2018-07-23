@@ -12,10 +12,11 @@ describe Configuration do
         {
           log_level: 'INFO',
           webserver: {
-            server:   'thin',
-            host:     '0.0.0.0',
-            port:     4567,
-            interval: 150
+            server:      'thin',
+            host:        '0.0.0.0',
+            port:        4567,
+            interval:    150,
+            tracking_id: nil
           },
           cricinfo: {
             list_url:           'http://static.cricinfo.com/rss/livescores.xml',
@@ -41,10 +42,11 @@ describe Configuration do
         {
           log_level: 'DEBUG',
           webserver: {
-            server:   'thin',
-            host:     '0.0.0.0',
-            port:     4568,
-            interval: 123
+            server:      'thin',
+            host:        '0.0.0.0',
+            port:        4568,
+            interval:    123,
+            tracking_id: nil
           },
           cricinfo: {
             list_url:           'http://example.com/list',

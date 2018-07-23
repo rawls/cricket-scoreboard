@@ -11,10 +11,11 @@ class Configuration
     {
       log_level: ENV['LOG_LEVEL'],
       webserver: {
-        server:   ENV['WEBSERVER'],
-        host:     ENV['HOST'],
-        port:     ENV['PORT'].to_i,
-        interval: ENV['REFRESH_INTERVAL'].to_i
+        server:      ENV['WEBSERVER'],
+        host:        ENV['HOST'],
+        port:        ENV['PORT'].to_i,
+        interval:    ENV['REFRESH_INTERVAL'].to_i,
+        tracking_id: ENV['TRACKING_ID']
       },
       cricinfo: {
         list_url:           ENV['LIST_URL'],

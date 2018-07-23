@@ -7,13 +7,14 @@ module Scoreboard
     attr_reader :dispatch, :server, :host, :port, :logger
 
     def initialize(cricinfo, opts = {})
-      @cricinfo = cricinfo
-      @server   = opts[:server]   || 'thin'
-      @host     = opts[:host]     || '0.0.0.0'
-      @port     = opts[:port]     || 4567
-      @interval = opts[:interval] || 150
-      @logger   = opts[:logger]   || Logger.new(STDOUT)
-      @dispatch = setup_rack
+      @cricinfo    = cricinfo
+      @server      = opts[:server]   || 'thin'
+      @host        = opts[:host]     || '0.0.0.0'
+      @port        = opts[:port]     || 4567
+      @interval    = opts[:interval] || 150
+      @logger      = opts[:logger]   || Logger.new(STDOUT)
+      @tracking_id = opts[:tracking_id]
+      @dispatch    = setup_rack
       Thin::Logging.logger = @logger if @server == 'thin'
     end
 
@@ -23,6 +24,7 @@ module Scoreboard
       App.set :logger, @logger
       App.set :cricinfo, @cricinfo
       App.set :refresh_interval, @interval
+      App.set :tracking_id, @tracking_id
       Rack::Builder.app do
         map('/') { run App.new }
       end
