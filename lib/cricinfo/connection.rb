@@ -33,6 +33,7 @@ module Cricinfo
     def request_match_data(match_id)
       uri      = URI(@data_url + match_id.to_s + '.json')
       response = Net::HTTP.get_response(uri)
+      Cricinfo.logger.debug(response.body) if Cricinfo.logger.debug?
       Cricinfo.logger.info "Match ID:#{match_id} Response: #{response.code}"
       JSON.parse(response.body)
     end
