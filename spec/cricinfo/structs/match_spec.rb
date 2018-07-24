@@ -30,7 +30,7 @@ describe Cricinfo::Structs::Match do
       end
 
       it 'sets the series' do
-        expect(match.series).to eq 'Specsavers County Championship Division One'
+        expect(match.series).to eq 'County DIV One'
       end
 
       it 'sets the ground\'s name' do

@@ -5,6 +5,7 @@ en:
     title:  "Cricket Scoreboards"
     versus: v
     at:     "@"
+    day:    Day
   scoreboard:
     total:       TOTAL
     overs:       OVERS

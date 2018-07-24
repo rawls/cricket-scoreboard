@@ -19,41 +19,46 @@ describe Scoreboard::App do
 
     it 'contains a mini-scoreboard for the 1st match' do
       expect(response.body).to have_tag("a[href='/scoreboard/1-Hampshire-v-Warwickshire']") do
+        with_tag('#match-1-series',    text: 'County DIV One')
         with_tag('#match-1-home-team', text: 'Hampshire')
         with_tag('#match-1-away-team', text: 'Warwickshire')
-        with_tag('#match-1-ground',    text: '@ Southampton')
+        with_tag('#match-1-ground',    text: /Day \d+ @ Southampton/)
       end
     end
 
     it 'contains a mini-scoreboard for the 2nd match' do
       expect(response.body).to have_tag("a[href='/scoreboard/2-England-v-South-Africa']") do
+        with_tag('#match-2-series',    text: 'SA in England ODI Series')
         with_tag('#match-2-home-team', text: 'England')
         with_tag('#match-2-away-team', text: 'South Africa')
-        with_tag('#match-2-ground',    text: '@ Leeds')
+        with_tag('#match-2-ground',    text: /@ Leeds/)
       end
     end
 
     it 'contains a mini-scoreboard for the 3rd match' do
       expect(response.body).to have_tag("a[href='/scoreboard/3-Hampshire-v-Warwickshire']") do
+        with_tag('#match-3-series',    text: 'County DIV One')
         with_tag('#match-3-home-team', text: 'Hampshire')
         with_tag('#match-3-away-team', text: 'Warwickshire')
-        with_tag('#match-3-ground',    text: '@ Southampton')
+        with_tag('#match-3-ground',    text: /Day \d+ @ Southampton/)
       end
     end
 
     it 'contains a mini-scoreboard for the 4th match' do
       expect(response.body).to have_tag("a[href='/scoreboard/4-Hampshire-v-Warwickshire']") do
+        with_tag('#match-4-series',    text: 'County DIV One')
         with_tag('#match-4-home-team', text: 'Hampshire')
         with_tag('#match-4-away-team', text: 'Warwickshire')
-        with_tag('#match-4-ground',    text: '@ Southampton')
+        with_tag('#match-4-ground',    text: /Day \d+ @ Southampton/)
       end
     end
 
     it 'contains a mini-scoreboard for the 5th match' do
       expect(response.body).to have_tag("a[href='/scoreboard/5-Sussex-v-Durham']") do
+        with_tag('#match-5-series',    text: 'County DIV Two')
         with_tag('#match-5-home-team', text: 'Sussex')
         with_tag('#match-5-away-team', text: 'Durham')
-        with_tag('#match-5-ground',    text: '@ Hove')
+        with_tag('#match-5-ground',    text: /Day \d+ @ Hove/)
       end
     end
   end

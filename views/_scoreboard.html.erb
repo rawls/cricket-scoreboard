@@ -39,7 +39,7 @@
         <% batsman = match.batsmen[i] rescue nil %>
         <div class="details row">
           <div class="dotmatrix one_of_two"><%= "#{batsman.surname}:" rescue '-' %></div>
-          <div class="dotmatrix one_of_two" id="batsman-<%= i+1 %>-sr">
+          <div class="dotmatrix one_of_two" id="batsman-<%= i + 1 %>-sr">
             <%= "#{batsman.strike_rate} S/R" rescue '-' %>
           </div>
         </div>
@@ -51,7 +51,7 @@
         <% bowler = match.bowlers[i] rescue nil %>
         <div class="details row">
           <div class="dotmatrix one_of_two"><%= "#{bowler.surname}:" rescue '-' %></div>
-          <div class="dotmatrix one_of_two" id="bowler-<%= i+1 %>-stats">
+          <div class="dotmatrix one_of_two" id="bowler-<%= i + 1 %>-stats">
             <%= "#{bowler.conceded}-#{bowler.wickets} (#{bowler.economy})" rescue '-' %>
           </div>
         </div>

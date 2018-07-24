@@ -50,7 +50,7 @@ module Cricinfo
 
       # Gets the name of the series if one exists
       def self.find_series(seriesj)
-        string(seriesj.first, 'series_name')
+        string(seriesj.first, 'series_short_name')
       rescue StandardError
         nil
       end
@@ -131,6 +131,14 @@ module Cricinfo
       def runs_needed
         return nil unless @target
         @target - @runs
+      end
+
+      def day
+        (Date.today - @start_date).to_i + 1
+      end
+
+      def multiday?
+        @start_date < @end_date
       end
 
       # Pretty summary of the match

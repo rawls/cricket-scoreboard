@@ -26,11 +26,13 @@ footer a {
   width: 12em;
   height: 10em;
   margin-top: 0.4em;
-  line-height: 1.6em;
+  line-height: 1.1em;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1em;
   text-align: center;
   border-radius: 1%;
+  border-style: solid;
+  border-color: grey;
   box-shadow: 1px 2px 5px #111111;
 }
 .match-list li a {
@@ -39,6 +41,12 @@ footer a {
   height: 100%;
   width: 100%;
 }
+.match-list li a p.series {
+  color: white;
+  font-size: 1.1em;
+  line-height: 1.3em;
+  min-height: 2.6em;
+}
 .match-list li a p.team-name {
-  min-height: 3.2em;
+  min-height: 2.2em;
 }

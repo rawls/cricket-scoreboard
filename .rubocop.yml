@@ -15,6 +15,8 @@ Style/FrozenStringLiteralComment:
     - '**/*' # maybe later, ruby-3 later
 RSpec/MultipleExpectations:
   Max: 5
+RSpec/ExampleLength:
+  Max: 10
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'

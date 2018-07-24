@@ -3,20 +3,22 @@
 </header>
 <main>
   <ul class="match-list">
-    <% matches.each do |id, match| %>
+    <% matches.sort_by { |_k, v| v.series }.each do |id, match| %>
       <li class="mini-board" id="match-<%= id %>">
         <a href="/scoreboard/<%= "#{id}-#{match.summary.tr(' ', '-')}" %>">
+          <p class="dotmatrix series" id="match-<%= id %>-series"><%= match.series %></p>
           <p class="dotmatrix team-name" id="match-<%= id %>-home-team"><%= match.home_team.name %></p>
           <p class="dotmatrix"><%= I18n.t(:'index.versus') %></p>
           <p class="dotmatrix team-name" id="match-<%= id %>-away-team"><%= match.away_team.name %></p>
-          <p class="dotmatrix" id="match-<%= id %>-ground"><%= I18n.t(:'index.at') %> <%= match.ground.short_name %></p>
+          <p class="dotmatrix" id="match-<%= id %>-ground">
+            <% day = match.multiday? ? "#{I18n.t(:'index.day')} #{match.day} " : '' %>
+            <%= "#{day}#{I18n.t(:'index.at')} #{match.ground.short_name}" %>
+          </p>
         </a>
       </li>
     <% end %>
   </ul>
 </main>
 <footer class="dotmatrix">
-  <a href="https://github.com/rawls/cricket-scoreboard">
-    <%= I18n.t(:copyright) %> <%= Date.today.year %>
-  </a>
+  <a href="https://github.com/rawls/cricket-scoreboard"><%= I18n.t(:copyright) %> <%= Date.today.year %></a>
 </footer>
