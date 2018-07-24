@@ -51,7 +51,6 @@ module Cricinfo
       (@cached_matches.keys - list.keys).each { |mid| @cached_matches.delete(mid) }
       # Update cache timestamp
       @list_cached_at = Time.now
-      Cricinfo.logger.debug "Refreshed Matches: #{@cached_matches.keys.join(', ')}"
       true
     end
 
@@ -59,10 +58,11 @@ module Cricinfo
     def refresh_match_cache(match_id)
       json = @connection.request_match_data(match_id)
       data = { match: Structs::Match.parse(json), cached_at: Time.now }
-      Cricinfo.logger.debug "Refreshed Match ID:#{match_id} - #{data[:match].summary}"
+      Cricinfo.logger.info "Refreshed Match ID:#{match_id} - #{data[:match].summary}"
       data
     rescue StandardError => e
       Cricinfo.logger.error "Match ID:#{match_id} Refresh Error: #{e.class} - #{e.message} (#{e.backtrace.first})"
+      Cricinfo.logger.error json.to_json
       nil
     end
 

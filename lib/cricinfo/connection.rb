@@ -18,7 +18,6 @@ module Cricinfo
     def request_match_list
       matches  = {}
       response = Net::HTTP.get_response(URI(@list_url))
-      Cricinfo.logger.info "Match List Response: #{response.code}"
       xml_matches(response.body).each do |match|
         matches[match_id(match)] = match_description(match)
       rescue StandardError
@@ -34,7 +33,6 @@ module Cricinfo
       uri      = URI(@data_url + match_id.to_s + '.json')
       response = Net::HTTP.get_response(uri)
       Cricinfo.logger.debug(response.body) if Cricinfo.logger.debug?
-      Cricinfo.logger.info "Match ID:#{match_id} Response: #{response.code}"
       JSON.parse(response.body)
     end
 
