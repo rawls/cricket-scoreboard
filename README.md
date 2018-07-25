@@ -2,9 +2,11 @@
 
 This sinatra web application serves live scoreboards for professional cricket matches.
 
-![](./resources/index-screenshot.png)
+![](./resources/match-screenshot-landscape.png)
 
-![](./resources/match-screenshot.png)
+| ![](./resources/index-screenshot.png) | ![](./resources/match-screenshot-portrait.png) |
+|:-----:|:----------:|
+| Match List | Scoreboard |
 
 # Running the project
 
