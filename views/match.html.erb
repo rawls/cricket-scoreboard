@@ -1,10 +1,22 @@
 <main id="scoreboard">
   <%= erb(:'_scoreboard.html', layout: false, locals: { match: match_data(match_id), match_id: match_id }) %>
 </main>
-
+<video loop id="no-sleep">
+  <source src="/nosleep.mpeg" />
+</video>
+<button id="no-sleep-button"><%= I18n.t('scoreboard.awake') %></button>
 <script type="text/javascript">
-  // Update the scoreboard every two and a half minutes
+  // Stop screens from going to sleep, requires human interaction.
+  var button = document.getElementById('no-sleep-button');
+  var video  = document.getElementById('no-sleep');
+  button.onclick = function() {
+    video.play();
+    button.style.display = "none";
+  }
   $(document).ready(function() {
+    // Update the scoreboard every two and a half minutes.
     setInterval(function(){ refreshScore(<%= match_id.to_json %>); }, <%= (interval * 1000).to_json %>);
+    // Hide the no sleep button if it hasn't been pushed after 30 seconds.
+    setTimeout(function() { document.getElementById('no-sleep-button').style.display = "none"; }, 15000);
   });
 </script>

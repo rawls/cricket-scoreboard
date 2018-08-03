@@ -101,3 +101,21 @@
 .ticker-item:last-child {
   padding-right: 100%;
 }
+
+/* No sleep button */
+#no-sleep-button {
+  background-color: #4CAF50;
+  cursor: pointer;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 1em;
+  margin: 4px 2px;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
