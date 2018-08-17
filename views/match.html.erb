@@ -1,7 +1,10 @@
 <main id="scoreboard">
   <%= erb(:'_scoreboard.html', layout: false, locals: { match: match_data(match_id), match_id: match_id }) %>
 </main>
-<button id="no-sleep-button"><%= I18n.t('scoreboard.awake') %></button>
+<div id="no-sleep-button">
+  <img src="<%= image_path 'alarm-clock.svg' %>" alt="" width="40" height="40">
+  <%= I18n.t('scoreboard.awake') %>
+</div>
 <script type="text/javascript">
   // Stop screens from going to sleep, requires human interaction.
   var noSleep = new NoSleep();

@@ -104,18 +104,24 @@
 
 /* No sleep button */
 #no-sleep-button {
-  background-color: #4CAF50;
+  font-family: dotmatrix;
+  color: orange;
   cursor: pointer;
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-size: 1em;
-  margin: 4px 2px;
-  border-radius: 4px;
+  display: inline-block;
   position: absolute;
-  top: 0;
+  top:   0;
   right: 0;
+  margin: 10px;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #444;
+}
+#no-sleep-button img {
+  float: left;
+  margin: 3px 10px 0 -15px;
+  height: 40px;
+  width: 40px;
 }

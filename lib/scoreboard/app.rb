@@ -28,6 +28,7 @@ module Scoreboard
       set :digest_assets, true
       sprockets.append_path 'assets/stylesheets'
       sprockets.append_path 'assets/javascripts'
+      sprockets.append_path 'assets/images'
       sprockets.append_path 'assets/fonts'
       sprockets.js_compressor  = Uglifier.new(mangle: true)
       sprockets.css_compressor = :scss
