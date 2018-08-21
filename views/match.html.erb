@@ -5,8 +5,12 @@
   <img src="<%= image_path 'alarm-clock.svg' %>" alt="" width="40" height="40">
   <%= I18n.t('scoreboard.awake') %>
 </div>
+<style>
+  /* Disable scrolling for this page */
+  body { overflow: hidden; }
+</style>
 <script type="text/javascript">
-  // Stop screens from going to sleep, requires human interaction.
+  // Stop screens from going to sleep, requires human interaction to activate.
   var noSleep = new NoSleep();
   var button  = document.getElementById('no-sleep-button');
   button.onclick = function() {
