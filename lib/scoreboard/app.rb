@@ -44,6 +44,16 @@ module Scoreboard
     helpers Sprockets::Helpers
     helpers Scoreboard::Helpers
 
+    # Display a custom 404 page
+    not_found do
+      erb(:'errors/400.html')
+    end
+
+    # Display a custom error page
+    error do
+      erb(:'errors/500.html')
+    end
+
     # Display a list of available matches
     get '/' do
       cache_control :public, :must_revalidate, max_age: 120

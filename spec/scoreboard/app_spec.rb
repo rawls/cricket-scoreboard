@@ -195,4 +195,32 @@ describe Scoreboard::App do
       expect(response).to be_ok
     end
   end
+
+  context 'when the request raises an error' do
+    let(:response) { get '/' }
+
+    before do
+      allow(adapter).to receive(:matches).and_raise(StandardError)
+    end
+
+    it 'returns an error status code' do
+      expect(response.status).to eq 500
+    end
+
+    it 'returns a custom error page' do
+      expect(response.body).to have_tag('h1', text: 'Something went wrong!')
+    end
+  end
+
+  context 'when the page is not found' do
+    let(:response) { get '/foobar' }
+
+    it 'returns an error status code' do
+      expect(response.status).to eq 404
+    end
+
+    it 'returns a custom error page' do
+      expect(response.body).to have_tag('h1', text: 'Page not found!')
+    end
+  end
 end
