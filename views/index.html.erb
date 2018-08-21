@@ -3,7 +3,7 @@
 </header>
 <main>
   <ul class="match-list">
-    <% matches.sort_by { |_k, v| v.series }.each do |id, match| %>
+    <% matches.sort_by { |_k, v| v.series || 'Z' }.each do |id, match| %>
       <li class="mini-board" id="match-<%= id %>">
         <a href="/scoreboard/<%= "#{id}-#{match.summary.tr(' ', '-')}" %>">
           <p class="dotmatrix series" id="match-<%= id %>-series"><%= match.series %></p>
