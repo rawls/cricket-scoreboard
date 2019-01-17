@@ -19,10 +19,10 @@ describe Scoreboard::Server do
   describe '#start' do
     let(:expected_params) do
       {
-        app:       server.dispatch,
-        server:    server.server,
-        Host:      server.host,
-        Port:      server.port,
+        app: server.dispatch,
+        server: server.server,
+        Host: server.host,
+        Port: server.port,
         AccessLog: server.logger
       }
     end

@@ -68,7 +68,7 @@ module Scoreboard
       last_modified(cached_at(match_id))
       erb(:'match.html', locals: {
             match_id: match_id,
-            match:    match_data(match_id),
+            match: match_data(match_id),
             interval: settings.refresh_interval
           })
     end
@@ -80,7 +80,7 @@ module Scoreboard
       last_modified(cached_at(match_id))
       erb(:'_scoreboard.html', layout: false, locals: {
             match_id: match_id,
-            match:    match_data(match_id)
+            match: match_data(match_id)
           })
     end
 

@@ -19,13 +19,13 @@ module Cricinfo
       # Construct a player object from a Cricinfo JSON hash
       def self.parse(playerj)
         new(
-          id:             string(playerj, 'player_id', true),
-          name:           string(playerj, 'known_as', true),
-          dob:            date(playerj, 'dob'),
-          role:           string(playerj, 'player_primary_role'),
+          id: string(playerj, 'player_id', true),
+          name: string(playerj, 'known_as', true),
+          dob: date(playerj, 'dob'),
+          role: string(playerj, 'player_primary_role'),
           battling_style: string(playerj, 'batting_style_long'),
-          bowling_style:  string(playerj, 'bowling_style_long'),
-          captain:        bool(playerj, 'captain')
+          bowling_style: string(playerj, 'bowling_style_long'),
+          captain: bool(playerj, 'captain')
         )
       end
 

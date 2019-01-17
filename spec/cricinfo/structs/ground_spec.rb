@@ -5,10 +5,10 @@ describe Cricinfo::Structs::Ground do
 
       let(:opts) do
         {
-          name:       'Rose Bowl',
+          name: 'Rose Bowl',
           short_name: 'Rose',
-          latitude:   123.0,
-          longitude:  456.0
+          latitude: 123.0,
+          longitude: 456.0
         }
       end
 

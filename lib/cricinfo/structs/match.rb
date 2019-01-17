@@ -72,6 +72,7 @@ module Cricinfo
       # Parses innings information from a Cricinfo JSON hash and adds it to the match
       def add_innings(inningsj)
         return unless inningsj
+
         @innings = inningsj.select { |inning| int(inning, 'innings_number').positive? }.map do |inningj|
           Innings.parse(@teams, inningj)
         end
@@ -83,6 +84,7 @@ module Cricinfo
       # Parses current score info from a Cricinfo JSON hash and adds it to the match
       def add_score(livej)
         return unless livej && (inningsj = livej['innings'])
+
         @runs     = int(inningsj, 'runs')
         @wickets  = int(inningsj, 'wickets')
         @overs    = float(inningsj, 'overs')
@@ -95,6 +97,7 @@ module Cricinfo
       # Parses information about the last n balls from a Cricinfo JSON hash and adds it to the match
       def add_balls(commsj)
         return unless commsj
+
         commsj.each do |commj|
           commj['ball'].each do |ballj|
             ball = Ball.parse(ballj)
@@ -111,8 +114,10 @@ module Cricinfo
       # Parses information about the current batsmen from a Cricinfo JSON hash and adds it to the match
       def add_batsmen(livej)
         return unless livej && livej['batting'] && !livej['batting'].empty?
+
         livej['batting'].each do |batsmanj|
           break unless (player = @teams&.fetch(batsmanj['team_id'])&.player(batsmanj['player_id']))
+
           player.add_batting_info(batsmanj)
           @batsmen << player
         end
@@ -121,8 +126,10 @@ module Cricinfo
       # Parses information about the current bowlers from a Cricinfo JSON hash and adds it to the match
       def add_bowlers(livej)
         return unless livej && livej['bowling'] && !livej['bowling'].empty?
+
         livej['bowling'].each do |bowlerj|
           break unless (player = @teams&.fetch(bowlerj['team_id'])&.player(bowlerj['player_id']))
+
           player.add_bowling_info(bowlerj)
           @bowlers << player
         end
@@ -130,6 +137,7 @@ module Cricinfo
 
       def runs_needed
         return nil unless @target
+
         @target - @runs
       end
 

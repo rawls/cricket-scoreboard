@@ -25,6 +25,7 @@ module Cricinfo
     def match(match_id)
       @cached_matches[match_id] = refresh_match_cache(match_id) if match_cache_expired?(match_id)
       raise(NoSuchMatch, "Match ID:#{match_id}") unless @cached_matches[match_id]
+
       @cached_matches[match_id][:match]
     rescue StandardError => e
       Cricinfo.logger.error(e)

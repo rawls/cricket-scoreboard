@@ -56,9 +56,11 @@ module Cricinfo
       def self.enforce_required(required, field_name, &block)
         value = block.call
         raise "Missing required field #{field_name}" if required && value.nil?
+
         value
       rescue StandardError
         raise "Missing required field #{field_name}" if required
+
         nil
       end
     end

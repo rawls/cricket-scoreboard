@@ -14,8 +14,8 @@ module Cricinfo
       # Construct a team object from a Cricinfo JSON hash
       def self.parse(teamj)
         team = new(
-          id:         string(teamj, 'team_id'),
-          name:       string(teamj, 'team_name'),
+          id: string(teamj, 'team_id'),
+          name: string(teamj, 'team_name'),
           short_name: string(teamj, 'team_abbreviation')
         )
         team.add_players(teamj)
@@ -31,6 +31,7 @@ module Cricinfo
       def add_players(teamj)
         type = %w[player squad].detect { |t| !teamj[t].nil? }
         return unless type
+
         teamj[type].each do |playerj|
           player = Player.parse(playerj)
           @players[player.id] = player

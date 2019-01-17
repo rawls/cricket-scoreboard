@@ -14,10 +14,10 @@ module Cricinfo
       # Construct a cricket ground object from a Cricinfo JSON hash
       def self.parse(matchj)
         new(
-          name:       string(matchj, 'ground_name',       true),
+          name: string(matchj, 'ground_name', true),
           short_name: string(matchj, 'ground_small_name', true),
-          latitude:   float(matchj,  'ground_latitude'),
-          longitude:  float(matchj,  'ground_longitude')
+          latitude: float(matchj, 'ground_latitude'),
+          longitude: float(matchj, 'ground_longitude')
         )
       rescue StandardError => e
         Cricinfo.logger.warn("Ball: #{e.message}")

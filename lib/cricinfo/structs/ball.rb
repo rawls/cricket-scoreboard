@@ -25,9 +25,9 @@ module Cricinfo
       # Construct a ball object from a Cricinfo JSON hash
       def self.parse(ballj)
         new(
-          over:    float(ballj, 'overs_actual', true),
-          players: string(ballj, 'players',     true),
-          event:   string(ballj, 'event',       true)
+          over: float(ballj, 'overs_actual', true),
+          players: string(ballj, 'players', true),
+          event: string(ballj, 'event', true)
         )
       rescue StandardError => e
         Cricinfo.logger.warn("Ball: #{e.message}")

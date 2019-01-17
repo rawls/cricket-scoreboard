@@ -33,10 +33,10 @@ module Scoreboard
     def start
       @logger.info "Starting #{@server} webserver on #{@host}:#{@port}"
       Rack::Server.start(
-        app:       @dispatch,
-        server:    @server,
-        Host:      @host,
-        Port:      @port,
+        app: @dispatch,
+        server: @server,
+        Host: @host,
+        Port: @port,
         AccessLog: @logger
       )
       self

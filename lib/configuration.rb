@@ -11,16 +11,16 @@ class Configuration
     {
       log_level: ENV['LOG_LEVEL'],
       webserver: {
-        server:      ENV['WEBSERVER'],
-        host:        ENV['HOST'],
-        port:        ENV['PORT'].to_i,
-        interval:    ENV['REFRESH_INTERVAL'].to_i,
+        server: ENV['WEBSERVER'],
+        host: ENV['HOST'],
+        port: ENV['PORT'].to_i,
+        interval: ENV['REFRESH_INTERVAL'].to_i,
         tracking_id: ENV['TRACKING_ID']
       },
       cricinfo: {
-        list_url:           ENV['LIST_URL'],
-        match_url:          ENV['MATCH_URL'],
-        list_cache_expiry:  ENV['LIST_CACHE_EXPIRY'].to_i,
+        list_url: ENV['LIST_URL'],
+        match_url: ENV['MATCH_URL'],
+        list_cache_expiry: ENV['LIST_CACHE_EXPIRY'].to_i,
         match_cache_expiry: ENV['MATCH_CACHE_EXPIRY'].to_i
       }
     }

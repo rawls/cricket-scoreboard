@@ -25,11 +25,11 @@ module Cricinfo
           return nil
         end
         new(
-          batting_team:  teams[batting_team_id],
+          batting_team: teams[batting_team_id],
           fielding_team: teams[fielding_team_id],
-          balls:         int(inningsj, 'balls'),
-          runs:          int(inningsj, 'runs'),
-          wickets:       int(inningsj, 'wickets')
+          balls: int(inningsj, 'balls'),
+          runs: int(inningsj, 'runs'),
+          wickets: int(inningsj, 'wickets')
         )
       rescue StandardError => e
         Cricinfo.logger.warn("Innings: #{e.message}")

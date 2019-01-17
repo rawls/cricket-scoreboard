@@ -12,16 +12,16 @@ describe Configuration do
         {
           log_level: 'INFO',
           webserver: {
-            server:      'thin',
-            host:        '0.0.0.0',
-            port:        4567,
-            interval:    150,
+            server: 'thin',
+            host: '0.0.0.0',
+            port: 4567,
+            interval: 150,
             tracking_id: nil
           },
           cricinfo: {
-            list_url:           'http://static.cricinfo.com/rss/livescores.xml',
-            match_url:          'http://www.espncricinfo.com/ci/engine/match/',
-            list_cache_expiry:  3600,
+            list_url: 'http://static.cricinfo.com/rss/livescores.xml',
+            match_url: 'http://www.espncricinfo.com/ci/engine/match/',
+            list_cache_expiry: 3600,
             match_cache_expiry: 120
           }
         }
@@ -42,16 +42,16 @@ describe Configuration do
         {
           log_level: 'DEBUG',
           webserver: {
-            server:      'thin',
-            host:        '0.0.0.0',
-            port:        4568,
-            interval:    123,
+            server: 'thin',
+            host: '0.0.0.0',
+            port: 4568,
+            interval: 123,
             tracking_id: nil
           },
           cricinfo: {
-            list_url:           'http://example.com/list',
-            match_url:          'http://example.com/match',
-            list_cache_expiry:  9999,
+            list_url: 'http://example.com/list',
+            match_url: 'http://example.com/match',
+            list_cache_expiry: 9999,
             match_cache_expiry: 999
           }
         }
