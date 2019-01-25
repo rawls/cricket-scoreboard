@@ -15,6 +15,13 @@ module Scoreboard
       nil
     end
 
+    def match_status(match)
+      day = match.multiday? ? "#{I18n.t(:'index.day')} #{match.day} " : ''
+      match.break.nil? || match.break.empty? ? day : match.break
+    rescue StandardError
+      nil
+    end
+
     def cached_at(match_id = nil)
       return settings.cricinfo.list_cached_at unless match_id
 

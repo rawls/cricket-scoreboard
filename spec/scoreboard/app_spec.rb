@@ -22,7 +22,8 @@ describe Scoreboard::App do
         with_tag('#match-1-series',    text: 'County DIV One')
         with_tag('#match-1-home-team', text: 'Hampshire')
         with_tag('#match-1-away-team', text: 'Warwickshire')
-        with_tag('#match-1-ground',    text: /Day \d+ @ Southampton/)
+        with_tag('#match-1-status',    text: /Day \d+/)
+        with_tag('#match-1-ground',    text: /@ Southampton/)
       end
     end
 
@@ -40,7 +41,8 @@ describe Scoreboard::App do
         with_tag('#match-3-series',    text: 'County DIV One')
         with_tag('#match-3-home-team', text: 'Hampshire')
         with_tag('#match-3-away-team', text: 'Warwickshire')
-        with_tag('#match-3-ground',    text: /Day \d+ @ Southampton/)
+        with_tag('#match-3-status',    text: /Day \d+/)
+        with_tag('#match-3-ground',    text: /@ Southampton/)
       end
     end
 
@@ -49,7 +51,8 @@ describe Scoreboard::App do
         with_tag('#match-4-series',    text: 'County DIV One')
         with_tag('#match-4-home-team', text: 'Hampshire')
         with_tag('#match-4-away-team', text: 'Warwickshire')
-        with_tag('#match-4-ground',    text: /Day \d+ @ Southampton/)
+        with_tag('#match-4-status',    text: /Day \d+/)
+        with_tag('#match-4-ground',    text: /@ Southampton/)
       end
     end
 
@@ -58,7 +61,8 @@ describe Scoreboard::App do
         with_tag('#match-5-series',    text: 'County DIV Two')
         with_tag('#match-5-home-team', text: 'Sussex')
         with_tag('#match-5-away-team', text: 'Durham')
-        with_tag('#match-5-ground',    text: /Day \d+ @ Hove/)
+        with_tag('#match-5-status',    text: /Day \d+/)
+        with_tag('#match-5-ground',    text: /@ Hove/)
       end
     end
   end

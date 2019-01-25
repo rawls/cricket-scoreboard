@@ -10,9 +10,9 @@
           <p class="dotmatrix team-name" id="match-<%= id %>-home-team"><%= match.home_team.name %></p>
           <p class="dotmatrix"><%= I18n.t(:'index.versus') %></p>
           <p class="dotmatrix team-name" id="match-<%= id %>-away-team"><%= match.away_team.name %></p>
+          <p class="dotmatrix status" id="match-<%= id %>-status"><%= match_status(match) %></p>
           <p class="dotmatrix" id="match-<%= id %>-ground">
-            <% day = match.multiday? ? "#{I18n.t(:'index.day')} #{match.day} " : '' %>
-            <%= "#{day}#{I18n.t(:'index.at')} #{match.ground.short_name}" %>
+            <%= "#{I18n.t(:'index.at')} #{match.ground.short_name}" %>
           </p>
         </a>
       </li>

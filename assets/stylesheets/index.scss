@@ -24,7 +24,7 @@ footer a {
 .match-list li {
   background: #191919;
   width: 12em;
-  height: 10em;
+  height: 11em;
   margin-top: 0.4em;
   line-height: 1.1em;
   font-weight: bold;
@@ -49,4 +49,7 @@ footer a {
 }
 .match-list li a p.team-name {
   min-height: 2.2em;
+}
+.match-list li a p.status {
+  min-height: 1.1em;
 }
