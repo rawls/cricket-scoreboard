@@ -83,19 +83,27 @@
     </div>
   </div>
 </div>
-<% if match.balls %>
+<% if !match.break.nil? && !match.break.empty? %>
   <div class="ticker-wrapper">
-      <div class="ticker">
-        <% match.balls.each_with_index do |ball, i| %>
-          <div class="ticker-item" id="ball-<%= i %>">
-            <%= "#{ball.over}: #{ball.players}, " %>
-            <% if ball.wicket? || ball.boundary? %>
-              <span class="blink <%= ball.wicket? ? 'red' : 'green' %>-text"><%= ball.event %>!</span>
-            <% else %>
-              <span><%= ball.event %></span>
-            <% end %>
-          </div>
-        <% end %>
+    <div class="ticker">
+      <div class="ticker-item">
+        <span><%= match.break %></span>
       </div>
     </div>
+  </div>
+<% elsif match.balls %>
+  <div class="ticker-wrapper">
+    <div class="ticker">
+      <% match.balls.each_with_index do |ball, i| %>
+        <div class="ticker-item" id="ball-<%= i %>">
+          <%= "#{ball.over}: #{ball.players}, " %>
+          <% if ball.wicket? || ball.boundary? %>
+            <span class="blink <%= ball.wicket? ? 'red' : 'green' %>-text"><%= ball.event %>!</span>
+          <% else %>
+            <span><%= ball.event %></span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
