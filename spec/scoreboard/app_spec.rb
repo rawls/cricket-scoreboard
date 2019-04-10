@@ -187,9 +187,18 @@ describe Scoreboard::App do
   context 'when GET /squad/4-foo-bar/1102-foo-bar' do
     let(:response) { get '/squad/4-foo-bar/1102-foo-bar' }
     let(:match)    { adapter.match('4') }
+    let(:team)     { match.teams['1102'] }
 
     it 'returns a successful response' do
       expect(response).to be_ok
+    end
+
+    it 'contains the details of the players' do
+      team.players.each do |player_id, player|
+        expect(response.body).to have_tag("#player-#{player_id}-name", text: /#{player.name}/)
+        expect(response.body).to have_tag("#player-#{player_id}-role", text: /#{player.role}/)
+        expect(response.body).to have_tag("#player-#{player_id}-age", text: /#{player.age}/)
+      end
     end
   end
 
