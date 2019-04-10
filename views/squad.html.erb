@@ -1,0 +1,11 @@
+<main>
+  <table class="squad">
+    <% team.players.each do |player_id, player| %>
+      <tr class="player">
+        <td class="name"><%= player.name %></td>
+        <td class="role"><%= player.role %></td>
+        <td class="age"><%= I18n.t('squad.age', age: player.age) %></td>
+      </tr>
+    <% end %>
+  </table>
+</main>

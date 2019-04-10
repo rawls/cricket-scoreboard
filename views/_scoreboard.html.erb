@@ -60,7 +60,9 @@
   </div>
   <div class="row">
     <div class="col one_of_two">
-      <div class="dotmatrix" id="home-team-name"><%= match&.home_team&.name %></div>
+      <div class="dotmatrix" id="home-team-name">
+        <a href="<%= home_team_squad_url(match_id, match) %>"><%= match&.home_team&.name %></a>
+      </div>
       <% 2.times do |i| %>
         <div class="details row">
           <div class="label one_of_two"><%= I18n.t("scoreboard.#{i.odd? ? 'second' : 'first'}") %>:</div>
@@ -71,7 +73,9 @@
       <% end %>
     </div>
     <div class="col one_of_two">
-      <div class="dotmatrix" id="away-team-name"><%= match&.away_team&.name %></div>
+      <div class="dotmatrix" id="away-team-name">
+        <a href="<%= away_team_squad_url(match_id, match) %>"><%= match&.away_team&.name %></a>
+      </div>
       <% 2.times do |i| %>
         <div class="details row">
           <div class="label one_of_two"><%= I18n.t("scoreboard.#{i.odd? ? 'second' : 'first'}") %>:</div>

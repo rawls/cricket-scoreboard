@@ -18,6 +18,8 @@ en:
     first:       1ST
     second:      2ND
     awake:       KEEP AWAKE
+  squad:
+    age: "%{age}yrs"
   errors:
     not_found: 'Page not found!'
     something_went_wrong: 'Something went wrong!'

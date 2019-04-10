@@ -184,6 +184,15 @@ describe Scoreboard::App do
     end
   end
 
+  context 'when GET /squad/4-foo-bar/1102-foo-bar' do
+    let(:response) { get '/squad/4-foo-bar/1102-foo-bar' }
+    let(:match)    { adapter.match('4') }
+
+    it 'returns a successful response' do
+      expect(response).to be_ok
+    end
+  end
+
   context 'when requesting a file hosted in /public' do
     let(:response) { get '/favicon.ico' }
 

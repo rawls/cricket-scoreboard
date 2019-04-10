@@ -73,6 +73,15 @@ module Scoreboard
           })
     end
 
+    get '/squad/:match_id/:team_id' do
+      cache_control :public, :must_revalidate, max_age: 120
+      match_id = params[:match_id].split('-').first # SEO-friendly paths
+      last_modified(cached_at(match_id))
+      team_id = params[:team_id].split('-').first
+      match = match_data(match_id)
+      erb(:'squad.html', locals: { match: match, team: match.teams[team_id] })
+    end
+
     # Render the scoreboard partial on its own
     post '/scoreboard' do
       cache_control :public, :must_revalidate, max_age: 45

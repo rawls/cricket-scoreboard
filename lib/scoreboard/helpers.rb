@@ -22,6 +22,14 @@ module Scoreboard
       nil
     end
 
+    def home_team_squad_url(match_id, match)
+      "/squad/#{match_id}-#{match.summary.tr(' ', '-')}/#{match.home_team.id}-#{match.home_team.name.tr(' ', '-')}"
+    end
+
+    def away_team_squad_url(match_id, match)
+      "/squad/#{match_id}-#{match.summary.tr(' ', '-')}/#{match.away_team.id}-#{match.away_team.name.tr(' ', '-')}"
+    end
+
     def cached_at(match_id = nil)
       return settings.cricinfo.list_cached_at unless match_id
 

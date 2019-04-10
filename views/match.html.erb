@@ -2,7 +2,7 @@
   <%= erb(:'_scoreboard.html', layout: false, locals: { match: match_data(match_id), match_id: match_id }) %>
 </main>
 <div id="no-sleep-button">
-  <img src="<%= image_path 'alarm-clock.svg' %>" alt="" width="40" height="40">
+  <img src="<%= image_path 'alarm-clock.svg' %>" alt="" width="40" height="40" />
   <%= I18n.t('scoreboard.awake') %>
 </div>
 <style>

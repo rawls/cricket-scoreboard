@@ -47,6 +47,13 @@ module Cricinfo
       def surname
         @name.split(' ').last
       end
+
+      def age
+        now = Time.now.utc.to_date
+        now.year - @dob.year - (now.month > @dob.month || (now.month == @dob.month && now.day >= @dob.day) ? 0 : 1)
+      rescue StandardError
+        0
+      end
     end
   end
 end
