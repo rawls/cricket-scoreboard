@@ -19,7 +19,11 @@ en:
     second:      2ND
     awake:       KEEP AWAKE
   squad:
-    age: "%{age}yrs"
+    title: "%{squad}'s Squad"
+    name:  NAME
+    role:  ROLE
+    age:   AGE
+    years: "%{age}yrs"
   errors:
     not_found: 'Page not found!'
     something_went_wrong: 'Something went wrong!'

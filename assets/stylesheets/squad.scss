@@ -1,0 +1,49 @@
+/* Table styles */
+table.squad tr.captain * { color: white; } // different colour for captains
+table {
+  border: 1px solid #555;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+table tr {
+  border: 1px solid #666;
+  padding: .35em;
+}
+tr:nth-child(even) { background: #111; }
+table th, table td {
+  padding: .625em;
+  text-align: center;
+}
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+/* Collapse the table on narrow screens */
+@media screen and (max-width: 639px) {
+  table { border: 0; }
+  table thead { display: none; }
+  table tr {
+    border-bottom: 3px solid #666;
+    display: block;
+    margin-bottom: .625em;
+  }
+  tr:nth-child(even) { background: none; }
+  table td {
+    border-bottom: 1px solid #666;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  table td:before {
+    content: attr(data-label);
+    float: left;
+    font-family: Helvetica, Arial, Sans-Serif;
+    color: white;
+    font-weight: 550;
+    text-transform: uppercase;
+  }
+  table td:last-child { border-bottom: 0; }
+}

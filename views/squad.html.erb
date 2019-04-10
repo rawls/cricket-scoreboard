@@ -1,11 +1,30 @@
+<header>
+  <h1 class="dotmatrix"><%= I18n.t(:'squad.title', squad: team.name) %></h1>
+</header>
 <main>
   <table class="squad">
-    <% team.players.each do |player_id, player| %>
-      <tr class="player">
-        <td class="name" id="player-<%= player_id %>-name"><%= player.name %></td>
-        <td class="role" id="player-<%= player_id %>-role"><%= player.role %></td>
-        <td class="age" id="player-<%= player_id %>-age"><%= I18n.t('squad.age', age: player.age) %></td>
-      </tr>
-    <% end %>
+    <thead>
+      <th scope="col" class="label"><%= I18n.t('squad.name') %></th>
+      <th scope="col" class="label"><%= I18n.t('squad.role') %></th>
+      <th scope="col" class="label"><%= I18n.t('squad.age') %></th>
+    </thead>
+    <tbody>
+      <% team.players.each do |player_id, player| %>
+        <tr class="player<%= player.captain ? ' captain' : '' %>">
+          <td scope="row" data-label="<%= I18n.t('squad.name') %>" class="name dotmatrix" id="player-<%= player_id %>-name">
+            <%= player.name %>
+          </td>
+          <td data-label="<%= I18n.t('squad.role') %>" class="role dotmatrix" id="player-<%= player_id %>-role">
+            <%= role_description(player) %>
+          </td>
+          <td data-label="<%= I18n.t('squad.age') %>" class="age dotmatrix" id="player-<%= player_id %>-age">
+            <%= I18n.t('squad.years', age: player.age) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </main>
+<footer class="dotmatrix">
+  <a href="https://github.com/rawls/cricket-scoreboard"><%= I18n.t(:copyright) %> <%= Date.today.year %></a>
+</footer>

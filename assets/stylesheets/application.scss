@@ -1,5 +1,6 @@
 @import 'index';
 @import 'scoreboard';
+@import 'squad';
 
 /* Top level */
 body {
@@ -8,6 +9,10 @@ body {
 * {
   margin: 0;
   padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Flexible containers */
@@ -61,4 +66,22 @@ body {
   font-family: Helvetica, Arial, Sans-Serif;
   color: white;
   font-weight: 550;
+}
+
+/* Header and footer */
+header h1, footer {
+  text-align: center;
+  width: 100%;
+}
+header h1 {
+  margin-bottom: 3%;
+  padding-bottom: 3%;
+}
+footer {
+  margin-top: 3%;
+  padding-top: 3%;
+}
+footer a {
+  text-decoration: none;
+  color: orange;
 }

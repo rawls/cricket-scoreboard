@@ -30,6 +30,16 @@ module Scoreboard
       "/squad/#{match_id}-#{match.summary.tr(' ', '-')}/#{match.away_team.id}-#{match.away_team.name.tr(' ', '-')}"
     end
 
+    # Describes a player's role in the team using a combination of role and bowling style (for bowlers)
+    def role_description(player)
+      case player.role
+      when /bowler/i
+        player.bowling_style ? [player.bowling_style, player.role].join(' ') : player.role
+      else
+        player.role
+      end
+    end
+
     def cached_at(match_id = nil)
       return settings.cricinfo.list_cached_at unless match_id
 
