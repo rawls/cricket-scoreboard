@@ -15,6 +15,7 @@ tr:nth-child(even) { background: #111; }
 table th, table td {
   padding: .625em;
   text-align: center;
+  min-height: 1em; /* role is often missing */
 }
 table th {
   font-size: .85em;
