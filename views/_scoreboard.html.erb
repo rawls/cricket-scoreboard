@@ -87,7 +87,7 @@
     </div>
   </div>
 </div>
-<% if !match.break.nil? && !match.break.empty? %>
+<% if !match.break.nil? && !match.break.empty? && !match.break.match(/^Day \d+$/i) %>
   <div class="ticker-wrapper">
     <div class="ticker">
       <div class="ticker-item">
