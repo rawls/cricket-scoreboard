@@ -5,7 +5,7 @@
   <ul class="match-list">
     <% matches.sort_by { |_k, v| v.series || 'Z' }.each do |id, match| %>
       <li class="mini-board" id="match-<%= id %>">
-        <a href="/scoreboard/<%= "#{id}-#{match.summary.tr(' ', '-')}" %>">
+        <a href="/<%= I18n.locale %>/scoreboard/<%= "#{id}-#{match.summary.tr(' ', '-')}" %>">
           <p class="dotmatrix series" id="match-<%= id %>-series"><%= match.series %></p>
           <p class="dotmatrix team-name" id="match-<%= id %>-home-team"><%= match.home_team.name %></p>
           <p class="dotmatrix"><%= I18n.t(:'index.versus') %></p>

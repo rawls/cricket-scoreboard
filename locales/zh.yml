@@ -1,0 +1,29 @@
+zh:
+  title:     "板球記分牌"
+  copyright: "&copy; 非常優秀的人"
+  index:
+    title:  "板球記分牌"
+    versus: vs
+    at:     "在"
+    day:    天
+  scoreboard:
+    total:       總數
+    overs:       輪數
+    wickets:     出局數
+    run_rate:    得分率
+    runs_needed: 需要的
+    target:      目標
+    batsmen:     擊球
+    bowlers:     投球
+    first:       第一
+    second:      第二
+    awake:       KEEP AWAKE
+  squad:
+    title:  "%{squad}'s Squad"
+    name:   "名字"
+    role:   "位置"
+    age:    "年齡"
+    years:  "%{age}歲"
+  errors:
+    not_found: '網頁未找到'
+    something_went_wrong: '網頁出 錯'

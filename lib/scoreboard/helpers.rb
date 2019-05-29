@@ -23,11 +23,15 @@ module Scoreboard
     end
 
     def home_team_squad_url(match_id, match)
-      "/squad/#{match_id}-#{match.summary.tr(' ', '-')}/#{match.home_team.id}-#{match.home_team.name.tr(' ', '-')}"
+      match_path = "#{match_id}-#{match.summary.tr(' ', '-')}"
+      squad_path = "#{match.home_team.id}-#{match.home_team.name.tr(' ', '-')}"
+      "/#{I18n.locale}/squad/#{match_path}/#{squad_path}"
     end
 
     def away_team_squad_url(match_id, match)
-      "/squad/#{match_id}-#{match.summary.tr(' ', '-')}/#{match.away_team.id}-#{match.away_team.name.tr(' ', '-')}"
+      match_path = "#{match_id}-#{match.summary.tr(' ', '-')}"
+      squad_path = "#{match.away_team.id}-#{match.away_team.name.tr(' ', '-')}"
+      "/#{I18n.locale}/squad/#{match_path}/#{squad_path}"
     end
 
     # Describes a player's role in the team using a combination of role and bowling style (for bowlers)

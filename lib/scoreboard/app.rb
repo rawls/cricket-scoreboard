@@ -54,6 +54,13 @@ module Scoreboard
       erb(:'errors/500.html')
     end
 
+    before '/:locale/*' do
+      return unless I18n.available_locales.include?(params[:locale].to_sym)
+
+      I18n.locale       = params[:locale]
+      request.path_info = '/' + params[:splat][0]
+    end
+
     # Display a list of available matches
     get '/' do
       cache_control :public, :must_revalidate, max_age: 120
@@ -73,15 +80,6 @@ module Scoreboard
           })
     end
 
-    get '/squad/:match_id/:team_id' do
-      cache_control :public, :must_revalidate, max_age: 120
-      match_id = params[:match_id].split('-').first # SEO-friendly paths
-      last_modified(cached_at(match_id))
-      team_id = params[:team_id].split('-').first
-      match = match_data(match_id)
-      erb(:'squad.html', locals: { match: match, team: match.teams[team_id] })
-    end
-
     # Render the scoreboard partial on its own
     post '/scoreboard' do
       cache_control :public, :must_revalidate, max_age: 45
@@ -91,6 +89,16 @@ module Scoreboard
             match_id: match_id,
             match: match_data(match_id)
           })
+    end
+
+    # Render the squad page, showing a team's players for a match
+    get '/squad/:match_id/:team_id' do
+      cache_control :public, :must_revalidate, max_age: 120
+      match_id = params[:match_id].split('-').first # SEO-friendly paths
+      last_modified(cached_at(match_id))
+      team_id = params[:team_id].split('-').first
+      match = match_data(match_id)
+      erb(:'squad.html', locals: { match: match, team: match.teams[team_id] })
     end
 
     # Serve assets using sprockets
