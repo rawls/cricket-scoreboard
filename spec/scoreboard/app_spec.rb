@@ -146,15 +146,6 @@ describe Scoreboard::App do
     end
   end
 
-  context 'when GET /scoreboard/4-foo-bar' do
-    let(:response) { get '/scoreboard/4-foo-bar' }
-    let(:match)    { adapter.match('4') }
-
-    it 'contains the runs needed' do
-      expect(response.body).to have_tag('#runs-needed', text: 381)
-    end
-  end
-
   context 'when GET /status' do
     let(:response) { get '/status' }
     let(:json)     { JSON.parse(response.body) }

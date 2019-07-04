@@ -23,7 +23,7 @@
       <div class="sevensegment" id="wickets"><%= match&.wickets || '-' %></div>
     </div>
     <div class="col one_of_three">
-      <% if match&.runs_needed %>
+      <% if match&.runs_needed && (match.home_innings.count + match.away_innings.count) > 2 %>
         <div class="label"><%= I18n.t('scoreboard.runs_needed') %></div>
         <div class="sevensegment" id="runs-needed"><%= match&.runs_needed || '-' %></div>
       <% else %>
