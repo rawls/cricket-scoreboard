@@ -12,7 +12,7 @@
           <p class="dotmatrix team-name" id="match-<%= id %>-away-team"><%= match.away_team.name %></p>
           <p class="dotmatrix status" id="match-<%= id %>-status"><%= match_status(match) %></p>
           <p class="dotmatrix" id="match-<%= id %>-ground">
-            <%= "#{I18n.t(:'index.at')} #{match.ground.short_name}" %>
+            <%= "#{I18n.t(:'index.at')} #{match&.ground&.short_name || '-'}" %>
           </p>
         </a>
       </li>
