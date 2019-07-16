@@ -44,8 +44,8 @@ module Cricinfo
     def refresh_list_cache
       list = @connection.request_match_list
       # Add new matches
-      (list.keys - @cached_matches.keys).each do |mid|
-        data = refresh_match_cache(mid)
+      list.keys.each do |mid|
+        data = refresh_match_cache(mid) if match_cache_expired?(mid)
         @cached_matches[mid] = data if data
       end
       # Remove old matches
