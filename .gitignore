@@ -4,3 +4,5 @@ vendor
 **/.*.sw?
 .byebug_history
 TODO
+config/deploy/*.rb
+log

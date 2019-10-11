@@ -33,6 +33,11 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 1.9.0)
+    capistrano-bundler (1.6.0)
+      capistrano (~> 3.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     concurrent-ruby (1.1.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -164,6 +169,8 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capistrano
+  capistrano-bundler
+  capistrano-rvm
   erb_lint
   factory_bot
   i18n
@@ -184,4 +191,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.16.2
+   1.17.2
