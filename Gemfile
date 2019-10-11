@@ -9,7 +9,7 @@ gem 'sinatra'
 
 # Asset management
 gem 'sass'
-gem 'sprockets'
+gem 'sprockets', '~> 3'
 gem 'sprockets-helpers'
 gem 'uglifier'
 
@@ -29,4 +29,8 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'timecop', require: false
   gem 'webmock'
+end
+
+group :development do
+  gem 'capistrano'
 end

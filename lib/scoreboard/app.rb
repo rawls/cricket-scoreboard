@@ -19,7 +19,7 @@ module Scoreboard
       set :environment,       ENV['RACK_ENV'] || 'development'
       set :refresh_interval,  150
       # Translations
-      I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+      I18n::Backend::Simple.include I18n::Backend::Fallbacks
       I18n.load_path = Dir[File.join(root, 'locales', '*.yml')]
       I18n.backend.load_translations
       # Management of assets
