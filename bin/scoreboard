@@ -6,6 +6,7 @@ $LOAD_PATH << Pathname.new(__FILE__).realpath.parent.parent + 'lib'
 require 'configuration'
 require 'cricinfo'
 require 'scoreboard'
+require 'program_tools'
 
 if ENV['RACK_ENV'].nil? || ENV['RACK_ENV'].empty?
   env_file = Pathname.new(__FILE__).realpath.parent.parent + 'RACK_ENV'
@@ -13,14 +14,18 @@ if ENV['RACK_ENV'].nil? || ENV['RACK_ENV'].empty?
 end
 
 # Get configuration
-yaml  = Pathname.new(__FILE__).realpath.parent.parent + 'config' + 'scoreboard.yml'
-quiet = false
+yaml   = Pathname.new(__FILE__).realpath.parent.parent + 'config' + 'scoreboard.yml'
+quiet  = false
+daemon = false
 OptionParser.new do |opts|
   opts.on('-c', '--config YAML', 'Config file path') { |c| yaml = c }
   opts.on('-q', '--quiet', 'Silence logging')        { quiet = true }
+  opts.on('-d', '--daemonize', 'Run in background')  { daemon = true }
   opts.on('-h', '--help', 'This message')            { abort opts.to_s }
 end.parse!
 config = Configuration.parse(yaml)
+
+ProgramTools.daemonise('cricket-scoreboard') if daemon
 
 # Setup logging
 logger       = Logger.new(quiet ? nil : STDOUT)

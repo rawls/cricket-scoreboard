@@ -6,7 +6,8 @@ set :repo_url,      "git@github.com:rawls/#{fetch(:application)}.git"
 set :deploy_to,     "/var/www/#{fetch(:application)}"
 set :keep_releases, 2
 
-append :linked_dirs, 'log', 'tmp'
+append :linked_dirs,  'log', 'tmp'
+append :linked_files, "RACK_ENV"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -17,11 +18,6 @@ append :linked_dirs, 'log', 'tmp'
 
 # Default value for :pty is false
 # set :pty, true
-
-# Default value for :linked_files is []
-# append :linked_files, "config/database.yml"
-
-# Default value for linked_dirs is []
 
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
