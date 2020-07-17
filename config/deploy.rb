@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock '~> 3.11.2'
+lock '~> 3.14.1'
 
 set :application,   'cricket-scoreboard'
 set :repo_url,      "git@github.com:rawls/#{fetch(:application)}.git"
