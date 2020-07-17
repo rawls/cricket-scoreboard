@@ -7,7 +7,7 @@ set :deploy_to,     "/var/www/#{fetch(:application)}"
 set :keep_releases, 2
 
 append :linked_dirs,  'log', 'tmp'
-append :linked_files, 'RACK_ENV'
+append :linked_files, 'RACK_ENV', 'config/scoreboard.yml'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
