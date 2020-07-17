@@ -28,6 +28,20 @@ module ProgramTools
     # TODO: Manage EM threadpool
   end
 
+  # Log file to a file and ignore terminal input
+  def self.redirect_io(process_name)
+    STDIN.reopen('/dev/null') # Ignore terminal input
+    # Find a spot for the log
+    FileUtils.mkdir(LOG_DIRECTORY) unless File.exist?(LOG_DIRECTORY)
+    log_file = LOG_DIRECTORY + "#{process_name}.log"
+    # Redirect output to the logfile
+    $stdout.reopen(log_file, 'a')
+    $stderr.reopen(log_file, 'a')
+    # Enable sync so that log lines arrive in a timely fashion
+    $stdout.sync = true
+    $stderr.sync = true
+  end
+
   # Runs the process in the background and disdowns its parent
   private_class_method def self.background(process_name)
     exit!(0) if fork # Fork and exit the grandparent to ensure that the process isn't a group leader
@@ -44,20 +58,6 @@ module ProgramTools
     pidfile = PID_DIRECTORY + "#{process_name}.pid"
     File.write(pidfile, Process.pid.to_s) # Store the pid
     at_exit { File.delete(pidfile) if File.exist?(pidfile) } # Delete it on shutdown
-  end
-
-  # Log file to a file and ignore terminal input
-  private_class_method def self.redirect_io(process_name)
-    STDIN.reopen('/dev/null') # Ignore terminal input
-    # Find a spot for the log
-    FileUtils.mkdir(LOG_DIRECTORY) unless File.exist?(LOG_DIRECTORY)
-    log_file = LOG_DIRECTORY + "#{process_name}.log"
-    # Redirect output to the logfile
-    $stdout.reopen(log_file, 'a')
-    $stderr.reopen(log_file, 'a')
-    # Enable sync so that log lines arrive in a timely fashion
-    $stdout.sync = true
-    $stderr.sync = true
   end
 
   # Evented signal traps with support for logging

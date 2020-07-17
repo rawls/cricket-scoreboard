@@ -17,8 +17,10 @@ end
 yaml   = Pathname.new(__FILE__).realpath.parent.parent + 'config' + 'scoreboard.yml'
 quiet  = false
 daemon = false
+log    = false
 OptionParser.new do |opts|
   opts.on('-c', '--config YAML', 'Config file path') { |c| yaml = c }
+  opts.on('-l', '--log', 'Log to disk')              { log = true }
   opts.on('-q', '--quiet', 'Silence logging')        { quiet = true }
   opts.on('-d', '--daemonize', 'Run in background')  { daemon = true }
   opts.on('-h', '--help', 'This message')            { abort opts.to_s }
@@ -26,6 +28,7 @@ end.parse!
 config = Configuration.parse(yaml)
 
 ProgramTools.daemonise('cricket-scoreboard') if daemon
+ProgramTools.redirect_io('cricket-scoreboard') if log
 
 # Setup logging
 logger       = Logger.new(quiet ? nil : STDOUT)
