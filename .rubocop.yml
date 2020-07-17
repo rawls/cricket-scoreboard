@@ -1,5 +1,7 @@
 require: rubocop-rspec
 
+AllCops:
+  NewCops: enable
 Metrics/LineLength:
   Max: 120
 Metrics/ClassLength:

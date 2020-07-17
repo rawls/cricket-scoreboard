@@ -18,7 +18,7 @@ module Cricinfo
     # Get an overview of the matches playing today
     def matches
       refresh_list_cache if list_cache_expired?
-      @cached_matches.map { |key, val| [key, val[:match]] }.to_h
+      @cached_matches.transform_values { |cached_match| cached_match[:match] }
     end
 
     # Get the latest information about a particular match
@@ -44,7 +44,7 @@ module Cricinfo
     def refresh_list_cache
       list = @connection.request_match_list
       # Add new matches
-      list.keys.each do |mid|
+      list.each_key do |mid|
         data = refresh_match_cache(mid) if match_cache_expired?(mid)
         @cached_matches[mid] = data if data
       end

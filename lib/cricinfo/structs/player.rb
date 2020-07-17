@@ -2,9 +2,8 @@ module Cricinfo
   module Structs
     # Represents a cricket player
     class Player < Base
-      attr_reader :id, :name, :dob, :role, :batting_style, :bowling_style, :captain
-      attr_reader :wickets, :conceded, :overs, :economy
-      attr_reader :runs, :balls_faced, :strike_rate
+      attr_reader :id, :name, :dob, :role, :batting_style, :bowling_style, :captain, :wickets,
+                  :conceded, :overs, :economy, :runs, :balls_faced, :strike_rate
 
       def initialize(opts = {})
         @id             = opts[:id]

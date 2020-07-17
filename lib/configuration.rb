@@ -26,7 +26,7 @@ class Configuration
     }
   end
 
-  def self.apply_defaults(config) # rubocop:disable Metrics/AbcSize
+  def self.apply_defaults(config) # rubocop:disable Metrics/AbcSize,Metrics/CyclomaticComplexity
     config[:log_level]                     ||= 'INFO'
     config[:webserver]                     ||= {}
     config[:webserver][:server]            ||= 'thin'
