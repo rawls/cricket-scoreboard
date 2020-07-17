@@ -7,7 +7,7 @@ module Cricinfo
   # Handles HTTP communication with Cricinfo
   class Connection
     DEFAULT_LIST_URL = 'http://static.cricinfo.com/rss/livescores.xml'.freeze
-    DEFAULT_DATA_URL = 'http://www.espncricinfo.com/ci/engine/match/'.freeze
+    DEFAULT_DATA_URL = 'https://www.espncricinfo.com/ci/engine/match/'.freeze
 
     def initialize(list_url = DEFAULT_LIST_URL, data_url = DEFAULT_DATA_URL)
       @list_url = list_url || DEFAULT_LIST_URL
@@ -18,6 +18,8 @@ module Cricinfo
     def request_match_list
       matches  = {}
       response = Net::HTTP.get_response(URI(@list_url))
+      Cricinfo.logger.info("Requested #{@list_url} and received a #{response.code} response")
+      Cricinfo.logger.debug(response.body) if Cricinfo.logger.debug?
       xml_matches(response.body).each do |match|
         matches[match_id(match)] = match_description(match)
       rescue StandardError
@@ -32,6 +34,7 @@ module Cricinfo
     def request_match_data(match_id)
       uri      = URI(@data_url + match_id.to_s + '.json')
       response = Net::HTTP.get_response(uri)
+      Cricinfo.logger.info("Requested #{uri} and received a #{response.code} response")
       Cricinfo.logger.debug(response.body) if Cricinfo.logger.debug?
       JSON.parse(response.body)
     end

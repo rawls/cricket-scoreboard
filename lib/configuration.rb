@@ -35,7 +35,7 @@ class Configuration
     config[:webserver][:interval]            = 150  if config[:webserver][:interval].to_i.zero?
     config[:cricinfo]                      ||= {}
     config[:cricinfo][:list_url]           ||= 'http://static.cricinfo.com/rss/livescores.xml'
-    config[:cricinfo][:match_url]          ||= 'http://www.espncricinfo.com/ci/engine/match/'
+    config[:cricinfo][:match_url]          ||= 'https://www.espncricinfo.com/ci/engine/match/'
     config[:cricinfo][:list_cache_expiry]    = 3600 if config[:cricinfo][:list_cache_expiry].to_i.zero?
     config[:cricinfo][:match_cache_expiry]   = 120  if config[:cricinfo][:match_cache_expiry].to_i.zero?
     config
