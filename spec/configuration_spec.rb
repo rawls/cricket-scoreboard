@@ -20,7 +20,7 @@ describe Configuration do
           },
           cricinfo: {
             list_url: 'http://static.cricinfo.com/rss/livescores.xml',
-            match_url: 'http://www.espncricinfo.com/ci/engine/match/',
+            match_url: 'https://www.espncricinfo.com/ci/engine/match/',
             list_cache_expiry: 3600,
             match_cache_expiry: 120
           }
