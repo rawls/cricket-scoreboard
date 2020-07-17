@@ -1,5 +1,5 @@
 [Unit]
-Description=Scoreboard
+Description=Cricket Scoreboard
 Requires=network.target
 
 [Service]
@@ -14,3 +14,6 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
+
+# Put this file at /usr/lib/systemd/system/cricket-scoreboard.service
+# You can start it (and set it to auto-start) with systemctl enable --now cricket-scoreboard.service
