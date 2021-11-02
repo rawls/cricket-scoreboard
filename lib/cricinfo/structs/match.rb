@@ -116,8 +116,8 @@ module Cricinfo
         return unless livej && livej['batting'] && !livej['batting'].empty?
 
         livej['batting'].each do |batsmanj|
-          break unless (player = @teams&.fetch(batsmanj['team_id'])&.player(batsmanj['player_id']))
-
+          player = @teams&.fetch(batsmanj['team_id'])&.player(batsmanj['player_id']) rescue nil
+          break unless player
           player.add_batting_info(batsmanj)
           @batsmen << player
         end
@@ -128,7 +128,8 @@ module Cricinfo
         return unless livej && livej['bowling'] && !livej['bowling'].empty?
 
         livej['bowling'].each do |bowlerj|
-          break unless (player = @teams&.fetch(bowlerj['team_id'])&.player(bowlerj['player_id']))
+          player = @teams&.fetch(bowlerj['team_id'])&.player(bowlerj['player_id']) rescue nil
+          break unless player
 
           player.add_bowling_info(bowlerj)
           @bowlers << player
